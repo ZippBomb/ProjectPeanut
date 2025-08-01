@@ -3,14 +3,15 @@ using UnityEngine;
 public class Player : MonoBehaviour {
 
     public static Player instance;
+
+    public MainInput.PlayerActions input { get; private set; }
+
     private void Awake() {
 
         instance = this;
-        input = new PlayerInput();
+        input = Game.input.Player;
 
     }
-
-    public PlayerInput input { get; private set; }
 
     private void OnEnable() {
 

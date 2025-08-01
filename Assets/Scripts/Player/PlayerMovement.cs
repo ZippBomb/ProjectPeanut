@@ -4,14 +4,14 @@ public class PlayerMovement : MonoBehaviour {
 
     [SerializeField] private float speed = 1.0f;
 
-    private PlayerInput.PlayerActions inputMap;
+    private MainInput.PlayerActions inputMap;
 
     private Rigidbody rb;
     private Vector3 direction;
 
     private void Start() {
 
-        inputMap = Player.instance.input.Player;
+        inputMap = Player.instance.input;
 
         rb = GetComponent<Rigidbody>();
         Game.Assert(rb != null, "No RigidBody on object '" + gameObject.name + "' required by PlayerMovement");

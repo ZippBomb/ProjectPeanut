@@ -5,12 +5,13 @@ public class PlayerLook : MonoBehaviour {
     [SerializeField] private float sensitivity = 1.0f;
     [SerializeField] private Transform camera;
 
-    private PlayerInput.PlayerActions inputMap;
+    private MainInput.PlayerActions inputMap;
     private float pitch;
 
     private void Start() {
 
-        inputMap = Player.instance.input.Player;
+        inputMap = Player.instance.input;
+        pitch = camera.localEulerAngles.x;
 
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
