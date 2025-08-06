@@ -706,6 +706,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8709a90b50b9d564e8ab00cdbbdd3e9c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  wall: {fileID: 1488250569}
 --- !u!4 &885015007
 Transform:
   m_ObjectHideFlags: 0
@@ -850,6 +851,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   sensitivity: 1
   camera: {fileID: 330585546}
+  fireRayInterval: 5
+  wallMask:
+    serializedVersion: 2
+    m_Bits: 64
+  rayFireTime: 0
 --- !u!114 &996811230
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -914,7 +920,8 @@ GameObject:
   - component: {fileID: 1488250568}
   - component: {fileID: 1488250567}
   - component: {fileID: 1488250566}
-  m_Layer: 0
+  - component: {fileID: 1488250569}
+  m_Layer: 6
   m_Name: Wall
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1010,6 +1017,19 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1488250564}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &1488250569
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1488250564}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 76df70b7de42bb147b592bb98c17615a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  staredAt: 0
 --- !u!1 &2082098902
 GameObject:
   m_ObjectHideFlags: 0
