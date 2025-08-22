@@ -4,7 +4,7 @@ public class PlayerLook : MonoBehaviour {
 
     [Header("Look")]
     [SerializeField] private float sensitivity = 1.0f;
-    [SerializeField] private Transform camera;
+    [SerializeField] private new Transform camera;
 
     [Header("Wall")]
     [SerializeField] private int fireRayInterval = 2;

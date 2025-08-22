@@ -108,6 +108,24 @@ public partial class @MainInput: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": true
+                },
+                {
+                    ""name"": ""Use Left Item"",
+                    ""type"": ""Button"",
+                    ""id"": ""30b25b5f-3061-4dd9-a811-3c1c3ca02fd4"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Use Right Item"",
+                    ""type"": ""Button"",
+                    ""id"": ""ad843135-45b4-4a0a-8755-9886bc12c6e0"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -231,6 +249,50 @@ public partial class @MainInput: IInputActionCollection2, IDisposable
                     ""action"": ""Look"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""fd9b0ee3-c567-4f42-8bd9-9a56b460af7a"",
+                    ""path"": ""<Keyboard>/e"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": "";Keyboard&Mouse"",
+                    ""action"": ""Use Right Item"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""c261672f-1bbc-415a-beab-997adf6156f4"",
+                    ""path"": ""<Gamepad>/buttonNorth"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": "";Gamepad"",
+                    ""action"": ""Use Right Item"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""8970b31d-9ad1-4781-b281-db021d64d0a2"",
+                    ""path"": ""<Keyboard>/q"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": "";Keyboard&Mouse"",
+                    ""action"": ""Use Left Item"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""9bef321c-a8dc-4a26-a335-0110a9d8b15c"",
+                    ""path"": ""<Gamepad>/buttonSouth"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": "";Gamepad"",
+                    ""action"": ""Use Left Item"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -302,6 +364,8 @@ public partial class @MainInput: IInputActionCollection2, IDisposable
         m_Player = asset.FindActionMap("Player", throwIfNotFound: true);
         m_Player_Move = m_Player.FindAction("Move", throwIfNotFound: true);
         m_Player_Look = m_Player.FindAction("Look", throwIfNotFound: true);
+        m_Player_UseLeftItem = m_Player.FindAction("Use Left Item", throwIfNotFound: true);
+        m_Player_UseRightItem = m_Player.FindAction("Use Right Item", throwIfNotFound: true);
     }
 
     ~@MainInput()
@@ -384,6 +448,8 @@ public partial class @MainInput: IInputActionCollection2, IDisposable
     private List<IPlayerActions> m_PlayerActionsCallbackInterfaces = new List<IPlayerActions>();
     private readonly InputAction m_Player_Move;
     private readonly InputAction m_Player_Look;
+    private readonly InputAction m_Player_UseLeftItem;
+    private readonly InputAction m_Player_UseRightItem;
     /// <summary>
     /// Provides access to input actions defined in input action map "Player".
     /// </summary>
@@ -403,6 +469,14 @@ public partial class @MainInput: IInputActionCollection2, IDisposable
         /// Provides access to the underlying input action "Player/Look".
         /// </summary>
         public InputAction @Look => m_Wrapper.m_Player_Look;
+        /// <summary>
+        /// Provides access to the underlying input action "Player/UseLeftItem".
+        /// </summary>
+        public InputAction @UseLeftItem => m_Wrapper.m_Player_UseLeftItem;
+        /// <summary>
+        /// Provides access to the underlying input action "Player/UseRightItem".
+        /// </summary>
+        public InputAction @UseRightItem => m_Wrapper.m_Player_UseRightItem;
         /// <summary>
         /// Provides access to the underlying input action map instance.
         /// </summary>
@@ -435,6 +509,12 @@ public partial class @MainInput: IInputActionCollection2, IDisposable
             @Look.started += instance.OnLook;
             @Look.performed += instance.OnLook;
             @Look.canceled += instance.OnLook;
+            @UseLeftItem.started += instance.OnUseLeftItem;
+            @UseLeftItem.performed += instance.OnUseLeftItem;
+            @UseLeftItem.canceled += instance.OnUseLeftItem;
+            @UseRightItem.started += instance.OnUseRightItem;
+            @UseRightItem.performed += instance.OnUseRightItem;
+            @UseRightItem.canceled += instance.OnUseRightItem;
         }
 
         /// <summary>
@@ -452,6 +532,12 @@ public partial class @MainInput: IInputActionCollection2, IDisposable
             @Look.started -= instance.OnLook;
             @Look.performed -= instance.OnLook;
             @Look.canceled -= instance.OnLook;
+            @UseLeftItem.started -= instance.OnUseLeftItem;
+            @UseLeftItem.performed -= instance.OnUseLeftItem;
+            @UseLeftItem.canceled -= instance.OnUseLeftItem;
+            @UseRightItem.started -= instance.OnUseRightItem;
+            @UseRightItem.performed -= instance.OnUseRightItem;
+            @UseRightItem.canceled -= instance.OnUseRightItem;
         }
 
         /// <summary>
@@ -571,5 +657,19 @@ public partial class @MainInput: IInputActionCollection2, IDisposable
         /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
         /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
         void OnLook(InputAction.CallbackContext context);
+        /// <summary>
+        /// Method invoked when associated input action "Use Left Item" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+        /// </summary>
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
+        void OnUseLeftItem(InputAction.CallbackContext context);
+        /// <summary>
+        /// Method invoked when associated input action "Use Right Item" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+        /// </summary>
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
+        void OnUseRightItem(InputAction.CallbackContext context);
     }
 }

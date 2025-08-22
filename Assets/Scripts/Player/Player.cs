@@ -1,4 +1,6 @@
 using UnityEngine;
+using UnityEngine.InputSystem;
+using UnityEngine.Video;
 
 public class Player : MonoBehaviour {
 
@@ -17,6 +19,10 @@ public class Player : MonoBehaviour {
     [SerializeField] private Transform statIndicatorParent;
     [SerializeField] private GameObject statIndicatorPrefab;
 
+    [Header("Inventory")]
+    [SerializeField] private Item leftItem;
+    [SerializeField] private Item rightItem;
+
     private void Start() {
 
         foreach (Stat stat in stats) {
@@ -25,12 +31,26 @@ public class Player : MonoBehaviour {
             stat.HookUI(indicator);
 
         }
+
+        input.UseLeftItem.performed += UseLeftItem;
+        input.UseRightItem.performed += UseRightItem;
         
     }
     private void Update() {
 
         foreach (Stat stat in stats)
             stat.Update();
+        
+    }
+    
+    private void UseLeftItem(InputAction.CallbackContext ctx) {
+
+        leftItem.Use();
+
+    }
+    private void UseRightItem(InputAction.CallbackContext ctx) {
+
+        rightItem.Use();
 
     }
 
