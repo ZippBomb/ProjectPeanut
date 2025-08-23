@@ -9,9 +9,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9473f141c19d8c74bbd4a5a9f5110676, type: 3}
-  m_Name: Snicker
+  m_Script: {fileID: 11500000, guid: 428ddbc622735764aba86b245048a801, type: 3}
+  m_Name: GlassWater
   m_EditorClassIdentifier: 
-  name: Snicker
-  id: 0
-  satiety: 10
+  name: Glass of water
+  id: 1
+  satiety: 20
+  container: {fileID: 11400000, guid: fecc28464eeb0c148ad44c3df8ad2228, type: 2}

@@ -1,12 +1,21 @@
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "Item", menuName = "ScriptableObjects/Items/Item", order = 0)]
+public enum Hand : byte {
+
+    None = 0,
+
+    Left,
+    Right,
+
+}
+
+[CreateAssetMenu(fileName = "Item", menuName = "Items/Item", order = 0)]
 public class Item : ScriptableObject {
     
     public new string name = "Item";
     public int id = -1;
 
-    public virtual void Use() {
+    public virtual void Use(Hand hand) {
 
         Debug.Log("Item " + name + " was used.");
 

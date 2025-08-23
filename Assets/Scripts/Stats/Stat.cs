@@ -1,4 +1,5 @@
 using System;
+using Unity.IO.LowLevel.Unsafe;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -15,7 +16,7 @@ public class Stat {
 
     private Slider indicator;
 
-    public virtual void HookUI(GameObject indicator) {
+    public void HookUI(GameObject indicator) {
 
         Game.Assert(indicator.GetComponent<Slider>() != null, "Stat HookUI indicator parameter does not have a slider component.");
 
@@ -29,9 +30,23 @@ public class Stat {
         this.indicator.transform.GetChild(0).GetComponent<Image>().color = backgroundColor;
 
     }
+
     public virtual void Update() {
 
         value += replenishRate * Time.deltaTime;
+        UpdateIndicator();
+
+    }
+
+    public virtual void Replenish(float amount) {
+
+        value += amount;
+        UpdateIndicator();
+
+    }
+
+    private void UpdateIndicator() {
+
         indicator.value = value / maxValue;
 
     }

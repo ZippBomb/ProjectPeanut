@@ -15,7 +15,7 @@ public class Player : MonoBehaviour {
     }
 
     [Header("Stats")]
-    [SerializeField] private Stat[] stats = new Stat[] { new HealthStat(), };
+    [SerializeField] private Stat[] stats = new Stat[] { new HealthStat(), new Stat(), new Stat(), };
     [SerializeField] private Transform statIndicatorParent;
     [SerializeField] private GameObject statIndicatorPrefab;
 
@@ -42,17 +42,6 @@ public class Player : MonoBehaviour {
             stat.Update();
         
     }
-    
-    private void UseLeftItem(InputAction.CallbackContext ctx) {
-
-        leftItem.Use();
-
-    }
-    private void UseRightItem(InputAction.CallbackContext ctx) {
-
-        rightItem.Use();
-
-    }
 
     private void OnEnable() {
 
@@ -64,5 +53,49 @@ public class Player : MonoBehaviour {
         input.Disable();
 
     }
+
+    // Item system
+    
+    private void UseLeftItem(InputAction.CallbackContext ctx) {
+
+        if (leftItem == null) return;
+        leftItem.Use(Hand.Left);
+
+    }
+    private void UseRightItem(InputAction.CallbackContext ctx) {
+
+        if (rightItem == null) return;
+        rightItem.Use(Hand.Right);
+
+    }
+
+    public void SetItem(Hand hand, Item item) {
+
+        switch (hand) {
+
+            case Hand.Left: leftItem = item; break;
+            case Hand.Right: rightItem = item; break;
+            default: Debug.LogError("Invalid hand passed to SetItem."); break;
+
+        }
+
+    }
+    public void RemoveItem(Hand hand) {
+
+        switch (hand) {
+
+            case Hand.Left: leftItem = null; break;
+            case Hand.Right: rightItem = null; break;
+            default: Debug.LogError("Invalid hand passed to RemoveItem."); break;
+
+        }
+
+    }
+
+    // Getters
+
+    public static HealthStat GetHealthStat() { return (HealthStat) Player.instance.stats[0]; }
+    public static Stat GetThirstStat() { return Player.instance.stats[1]; }
+    public static Stat GetHungerStat() { return Player.instance.stats[2]; }
 
 }
