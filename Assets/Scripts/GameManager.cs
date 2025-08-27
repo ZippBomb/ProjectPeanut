@@ -33,11 +33,11 @@ public class GameManager : MonoBehaviour {
         Game.Assert(wall != null, "Wall was not assigned to GameManager!");
 
 #if UNITY_EDITOR
-        if (dayLengthInMinutes)
-            dayEnd = Time.time + dayLength * 60;
+        if (!dayLengthInMinutes)
+            dayEnd = Time.time + dayLength;
         else
 #endif
-            dayEnd = Time.time + dayLength;
+            dayEnd = Time.time + dayLength * 60;
 
     }
     private void Update() {
@@ -46,11 +46,11 @@ public class GameManager : MonoBehaviour {
 
         day++;
 #if UNITY_EDITOR
-        if (dayLengthInMinutes)
-            dayEnd = Time.time + dayLength * 60;
+        if (!dayLengthInMinutes)
+            dayEnd = Time.time + dayLength;
         else
 #endif
-            dayEnd = Time.time + dayLength;
+            dayEnd = Time.time + dayLength * 60;
 
     }
 
