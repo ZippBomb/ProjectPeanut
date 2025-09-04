@@ -14,4 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   name: Snicker
   id: 0
+  mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+  material: {fileID: 2100000, guid: d481b5b8832c4794ab5c848cb043ab09, type: 2}
   satiety: 10

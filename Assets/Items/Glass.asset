@@ -14,4 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   name: Empty glass
   id: 2
+  mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+  material: {fileID: 2100000, guid: 6e5ba212ab089ba4c8a5823470c7f225, type: 2}
   drink: {fileID: 11400000, guid: b4eb8d44b3df3ed4ca7d80fa6c503cbd, type: 2}

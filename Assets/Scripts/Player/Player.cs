@@ -23,7 +23,23 @@ public class Player : MonoBehaviour {
     [SerializeField] private Item leftItem;
     [SerializeField] private Item rightItem;
 
+    [SerializeField] private GameObject leftItemPreview;
+    [SerializeField] private GameObject rightItemPreview;
+
     private void Start() {
+
+        Game.Assert(leftItemPreview != null, "No Left item preview assigned to Player.");
+        Game.Assert(rightItemPreview != null, "No Right item preview assigned to Player.");
+
+        Game.Assert(leftItemPreview.GetComponent<MeshRenderer>() != null && leftItemPreview.GetComponent<MeshFilter>() != null,
+            "Left item previe assigned to player is missing Mesh Renderer and/or Mesh Filter components!");
+        Game.Assert(rightItemPreview.GetComponent<MeshRenderer>() != null && rightItemPreview.GetComponent<MeshFilter>() != null,
+            "Right item previe assigned to player is missing Mesh Renderer and/or Mesh Filter components!");
+
+        if (leftItem != null)
+            SetLeftItem(leftItem);
+        if (rightItem != null)
+            SetRightItem(rightItem);
 
         foreach (Stat stat in stats) {
 
@@ -68,24 +84,55 @@ public class Player : MonoBehaviour {
         rightItem.Use(Hand.Right);
 
     }
+    
+    public void SetLeftItem(Item item) {
 
+        leftItem = item;
+
+        leftItemPreview.SetActive(true);
+        leftItemPreview.GetComponent<MeshFilter>().mesh = item.mesh;
+        leftItemPreview.GetComponent<MeshRenderer>().material = item.material;
+
+    }
+    public void SetRightItem(Item item) {
+
+        rightItem = item;
+
+        rightItemPreview.SetActive(true);
+        rightItemPreview.GetComponent<MeshFilter>().mesh = item.mesh;
+        rightItemPreview.GetComponent<MeshRenderer>().material = item.material;
+
+    }
     public void SetItem(Hand hand, Item item) {
 
         switch (hand) {
 
-            case Hand.Left: leftItem = item; break;
-            case Hand.Right: rightItem = item; break;
+            case Hand.Left: SetLeftItem(item); break;
+            case Hand.Right: SetRightItem(item); break;
             default: Debug.LogError("Invalid hand passed to SetItem."); break;
 
         }
+
+    }
+    
+    public void RemoveLeftItem() {
+
+        leftItem = null;
+        leftItemPreview.SetActive(false);
+
+    }
+    public void RemoveRightItem() {
+
+        rightItem = null;
+        rightItemPreview.SetActive(false);
 
     }
     public void RemoveItem(Hand hand) {
 
         switch (hand) {
 
-            case Hand.Left: leftItem = null; break;
-            case Hand.Right: rightItem = null; break;
+            case Hand.Left: RemoveLeftItem(); break;
+            case Hand.Right: RemoveRightItem(); break;
             default: Debug.LogError("Invalid hand passed to RemoveItem."); break;
 
         }

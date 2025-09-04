@@ -14,5 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   name: Glass of water
   id: 1
+  mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+  material: {fileID: 2100000, guid: 96f6f61bda539db47aa61238a2a5c28c, type: 2}
   satiety: 20
   container: {fileID: 11400000, guid: fecc28464eeb0c148ad44c3df8ad2228, type: 2}

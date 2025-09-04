@@ -25,32 +25,44 @@ public class GameManager : MonoBehaviour {
     [SerializeField] private Player player;
     [SerializeField] private Wall wall;
 
+    [Header("Clock")]
+    [SerializeField] private Transform hourHand;
+    [SerializeField] private Transform minuteHand;
+
     float dayEnd = 0;
+
+    public float GetDayLength() {
+
+#if UNITY_EDITOR       
+        if (!dayLengthInMinutes)
+            return dayLength;
+        else
+#endif
+        return dayLength * 60.0f;
+
+    }
 
     private void Start() {
 
         Game.Assert(player != null, "Player was not assigned to GameManager!");
         Game.Assert(wall != null, "Wall was not assigned to GameManager!");
 
-#if UNITY_EDITOR
-        if (!dayLengthInMinutes)
-            dayEnd = Time.time + dayLength;
-        else
-#endif
-            dayEnd = Time.time + dayLength * 60;
+        dayEnd = Time.time + GetDayLength();
 
     }
     private void Update() {
 
-        if (Time.time < dayEnd) return;
+        float dayProgress = (GetDayLength() - (dayEnd - Time.time)) / GetDayLength();
 
-        day++;
-#if UNITY_EDITOR
-        if (!dayLengthInMinutes)
-            dayEnd = Time.time + dayLength;
-        else
-#endif
-            dayEnd = Time.time + dayLength * 60;
+        hourHand.transform.rotation = Quaternion.Euler(dayProgress * 2.0f * 360.0f - 90.0f, 90.0f, -90.0f);
+        minuteHand.transform.rotation = Quaternion.Euler(dayProgress * 24.0f * 360.0f - 90.0f, 90.0f, -90.0f);
+
+        if (Time.time >= dayEnd) {
+
+            day++;
+            dayEnd = Time.time + GetDayLength();
+
+        }
 
     }
 
