@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.Video;
@@ -26,6 +27,9 @@ public class Player : MonoBehaviour {
     [SerializeField] private GameObject leftItemPreview;
     [SerializeField] private GameObject rightItemPreview;
 
+    [Header("Spell system")]
+    [SerializeField] private List<Spell> spells = new List<Spell>();
+
     private void Start() {
 
         Game.Assert(leftItemPreview != null, "No Left item preview assigned to Player.");
@@ -50,6 +54,8 @@ public class Player : MonoBehaviour {
 
         input.UseLeftItem.performed += UseLeftItem;
         input.UseRightItem.performed += UseRightItem;
+
+        input.Castspell.performed += CastSpell;
         
     }
     private void Update() {
@@ -136,6 +142,18 @@ public class Player : MonoBehaviour {
             default: Debug.LogError("Invalid hand passed to RemoveItem."); break;
 
         }
+
+    }
+
+    // Spell system
+
+    private void CastSpell(InputAction.CallbackContext ctx) {
+
+        int value = (int) ctx.ReadValue<float>();
+        if (value >= spells.Count || spells[value] == null) return;
+
+        Spell spell = spells[value];
+        spell.Cast();
 
     }
 

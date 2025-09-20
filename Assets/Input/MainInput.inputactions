@@ -40,6 +40,15 @@
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
+                },
+                {
+                    "name": "Cast spell",
+                    "type": "Value",
+                    "id": "5150b600-5e90-4850-82ca-090ed8dd6665",
+                    "expectedControlType": "Axis",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": true
                 }
             ],
             "bindings": [
@@ -205,6 +214,116 @@
                     "processors": "",
                     "groups": ";Gamepad",
                     "action": "Use Left Item",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "3452efe4-3e7d-4f42-b267-16b682d147f9",
+                    "path": "<Keyboard>/1",
+                    "interactions": "",
+                    "processors": "Scale(factor=0)",
+                    "groups": ";Keyboard&Mouse",
+                    "action": "Cast spell",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "d1e8552f-0eee-4270-a61a-f9036c9f1537",
+                    "path": "<Keyboard>/2",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": ";Keyboard&Mouse",
+                    "action": "Cast spell",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "4888036d-831b-47db-abcf-e7fe387272af",
+                    "path": "<Keyboard>/3",
+                    "interactions": "",
+                    "processors": "Scale(factor=2)",
+                    "groups": ";Keyboard&Mouse",
+                    "action": "Cast spell",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "b792cc1e-a93a-4f3a-89f1-9704673eaf79",
+                    "path": "<Keyboard>/4",
+                    "interactions": "",
+                    "processors": "Scale(factor=3)",
+                    "groups": ";Keyboard&Mouse",
+                    "action": "Cast spell",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "59c51634-68d7-4818-b861-cf69268f6ef6",
+                    "path": "<Keyboard>/5",
+                    "interactions": "",
+                    "processors": "Scale(factor=4)",
+                    "groups": ";Keyboard&Mouse",
+                    "action": "Cast spell",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "66ca870e-2e79-4a5a-af1d-aff9755d88ee",
+                    "path": "<Keyboard>/6",
+                    "interactions": "",
+                    "processors": "Scale(factor=5)",
+                    "groups": ";Keyboard&Mouse",
+                    "action": "Cast spell",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "5e20853e-8fa6-40f0-b5a8-f2c0e0514aa4",
+                    "path": "<Keyboard>/7",
+                    "interactions": "",
+                    "processors": "Scale(factor=6)",
+                    "groups": ";Keyboard&Mouse",
+                    "action": "Cast spell",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "87054ad8-3bf0-42ed-ba1f-519003a75d89",
+                    "path": "<Keyboard>/8",
+                    "interactions": "",
+                    "processors": "Scale(factor=7)",
+                    "groups": ";Keyboard&Mouse",
+                    "action": "Cast spell",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "8d00af1c-e7b4-4752-b853-a77f6f692955",
+                    "path": "<Keyboard>/9",
+                    "interactions": "",
+                    "processors": "Scale(factor=8)",
+                    "groups": ";Keyboard&Mouse",
+                    "action": "Cast spell",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "73bde4db-ac43-4a28-b1fb-65a2c87f0422",
+                    "path": "<Keyboard>/0",
+                    "interactions": "",
+                    "processors": "Scale(factor=9)",
+                    "groups": ";Keyboard&Mouse",
+                    "action": "Cast spell",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
