@@ -12,5 +12,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 467d4c2f52a3f224a92c166c8b7d2faa, type: 3}
   m_Name: Fireball
   m_EditorClassIdentifier: 
+  castLogic:
+    rid: 156049909878358091
   castLogicType: 1
   damage: 50
+  references:
+    version: 2
+    RefIds:
+    - rid: 156049909878358091
+      type: {class: CooldownCastLogic, ns: , asm: Assembly-CSharp}
+      data:
+        cooldown: 3

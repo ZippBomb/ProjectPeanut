@@ -153,7 +153,7 @@ public class Player : MonoBehaviour {
         if (value >= spells.Count || spells[value] == null) return;
 
         Spell spell = spells[value];
-        spell.Cast();
+        spell.AttemptCast();
 
     }
 
