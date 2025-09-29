@@ -215,7 +215,7 @@ MonoBehaviour:
   m_ChildControlHeight: 1
   m_ChildScaleWidth: 0
   m_ChildScaleHeight: 0
-  m_ReverseArrangement: 1
+  m_ReverseArrangement: 0
 --- !u!1 &330585543
 GameObject:
   m_ObjectHideFlags: 0
@@ -1058,21 +1058,36 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   stats:
-  - value: 75
+  - name: Health
+    value: 100
     maxValue: 100
-    replenishRate: 1
+    replenishRate: 0.5
     fillColor: {r: 1, g: 0, b: 0, a: 1}
-    backgroundColor: {r: 0.5283019, g: 0, b: 0, a: 1}
-  - value: 100
-    maxValue: 100
-    replenishRate: -3
-    fillColor: {r: 0, g: 0.4276328, b: 1, a: 1}
-    backgroundColor: {r: 0, g: 0.1727811, b: 0.5294118, a: 1}
-  - value: 50
+    backgroundColor: {r: 0.6509434, g: 0, b: 0, a: 1}
+  - name: Satiety
+    value: 100
     maxValue: 100
     replenishRate: -1
-    fillColor: {r: 0.4245283, g: 0.21644835, b: 0, a: 1}
-    backgroundColor: {r: 0.26415092, g: 0.054050125, b: 0, a: 1}
+    fillColor: {r: 0.4528302, g: 0.25061563, b: 0, a: 1}
+    backgroundColor: {r: 0.3301887, g: 0.1837572, b: 0, a: 1}
+  - name: Thirst
+    value: 100
+    maxValue: 100
+    replenishRate: -2
+    fillColor: {r: 0, g: 0.5104327, b: 1, a: 1}
+    backgroundColor: {r: 0, g: 0.23727082, b: 0.764151, a: 1}
+  - name: Exhaustion
+    value: 100
+    maxValue: 100
+    replenishRate: -0.75
+    fillColor: {r: 0.7702551, g: 0, b: 1, a: 1}
+    backgroundColor: {r: 0.48740047, g: 0, b: 0.6415094, a: 1}
+  - name: Toilet
+    value: 0
+    maxValue: 100
+    replenishRate: 0.5
+    fillColor: {r: 1, g: 0.98480475, b: 0, a: 1}
+    backgroundColor: {r: 0.5382777, g: 0.5471698, b: 0, a: 1}
   statIndicatorParent: {fileID: 184942031}
   statIndicatorPrefab: {fileID: 2871151738545182816, guid: 040733cf16e99144e8d7496936dfc600, type: 3}
   leftItem: {fileID: 11400000, guid: b4eb8d44b3df3ed4ca7d80fa6c503cbd, type: 2}

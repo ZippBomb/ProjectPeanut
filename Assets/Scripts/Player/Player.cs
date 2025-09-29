@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using Unity.VisualScripting.Antlr3.Runtime.Misc;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.Video;
@@ -16,7 +17,7 @@ public class Player : MonoBehaviour {
     }
 
     [Header("Stats")]
-    [SerializeField] private Stat[] stats = new Stat[] { new HealthStat(), new Stat(), new Stat(), };
+    [SerializeField] private Stat[] stats = new Stat[] { new HealthStat(), new SatietyStat(), new ThirstStat(), new ExhaustionStat(), new ToiletStat() };
     [SerializeField] private Transform statIndicatorParent;
     [SerializeField] private GameObject statIndicatorPrefab;
 
@@ -24,6 +25,7 @@ public class Player : MonoBehaviour {
     [SerializeField] private Item leftItem;
     [SerializeField] private Item rightItem;
 
+    [Space]
     [SerializeField] private GameObject leftItemPreview;
     [SerializeField] private GameObject rightItemPreview;
 
@@ -159,8 +161,13 @@ public class Player : MonoBehaviour {
 
     // Getters
 
-    public static HealthStat GetHealthStat() { return (HealthStat) Player.instance.stats[0]; }
-    public static Stat GetThirstStat() { return Player.instance.stats[1]; }
-    public static Stat GetHungerStat() { return Player.instance.stats[2]; }
+    public static Stat GetStat(Stat.Type type) {
+
+        int index = (int) type;
+
+        Game.Assert(index < Player.instance.stats.Length, "Invalid Stat type.");
+        return Player.instance.stats[index];
+
+    }
 
 }

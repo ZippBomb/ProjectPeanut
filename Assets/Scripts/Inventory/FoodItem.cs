@@ -7,7 +7,7 @@ public class FoodItem : Item {
 
     public override void Use(Hand hand) {
 
-        Stat stat = Player.GetHungerStat();
+        Stat stat = Player.GetStat(Stat.Type.Satiety);
         Game.Assert(stat != null, "Could not get hunger stat from Player.");
 
         stat.Replenish(satiety);

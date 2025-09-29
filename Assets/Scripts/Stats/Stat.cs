@@ -6,6 +6,17 @@ using UnityEngine.UI;
 [System.Serializable]
 public class Stat {
 
+    public enum Type {
+
+        Health = 0,
+        Satiety,
+        Thirst,
+        Exhaustion,
+        Toilet,
+
+    }
+
+    public string name = "Stat";
     public float value = 100.0f;
     public float maxValue = 100.0f;
     public float replenishRate = 1.0f;
@@ -34,6 +45,11 @@ public class Stat {
     public virtual void Update() {
 
         value += replenishRate * Time.deltaTime;
+        if (value > maxValue)
+            value = maxValue;
+        else if (value < 0.0f)
+            value = 0.0f;
+
         UpdateIndicator();
 
     }
@@ -41,6 +57,11 @@ public class Stat {
     public virtual void Replenish(float amount) {
 
         value += amount;
+        if (value > maxValue)
+            value = maxValue;
+        else if (value < 0.0f)
+            value = 0.0f;    
+
         UpdateIndicator();
 
     }

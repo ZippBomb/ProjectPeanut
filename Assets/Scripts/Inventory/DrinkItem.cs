@@ -10,7 +10,7 @@ public class DrinkItem : Item {
 
         Game.Assert(container != null, "Tried to use a drink item with no container item.");
 
-        Stat stat = Player.GetThirstStat();
+        Stat stat = Player.GetStat(Stat.Type.Thirst);
         Game.Assert(stat != null, "Could not get thirst stat from Player.");
 
         stat.Replenish(satiety);

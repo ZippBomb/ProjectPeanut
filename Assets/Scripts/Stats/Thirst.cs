@@ -1,7 +1,7 @@
 using UnityEngine;
 
 [System.Serializable]
-public class HealthStat : Stat {
+public class ThirstStat : Stat {
 
     //
 
