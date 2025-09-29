@@ -1095,9 +1095,10 @@ MonoBehaviour:
   leftItemPreview: {fileID: 1759482399}
   rightItemPreview: {fileID: 1121470706}
   spells:
-  - {fileID: 11400000, guid: 7f2c4cffb1a627a4d9050ba0c69e0b64, type: 2}
-  - {fileID: 11400000, guid: 1e8f1be9d5d9ed74daff93b435a08208, type: 2}
-  - {fileID: 11400000, guid: 5f107466829870d4ba57760b981770a2, type: 2}
+  - {fileID: 11400000, guid: 56b961c9cbe86e545ba10a075bbe84df, type: 2}
+  - {fileID: 11400000, guid: 45e537825e2928e44a5c3ebfc8d2e6a4, type: 2}
+  - {fileID: 11400000, guid: d8ada609be69fc54eaf8267be872e3cd, type: 2}
+  - {fileID: 11400000, guid: bf7813bcb2407c343a073cdf11f2d9a8, type: 2}
 --- !u!54 &996811232
 Rigidbody:
   m_ObjectHideFlags: 0

@@ -29,11 +29,10 @@ public class SpellEditor : Editor {
 
         }
 
-        SerializedObject so = new SerializedObject(spell);
-        SerializedProperty prop = so.FindProperty("castLogic");
+        SerializedProperty prop = serializedObject.FindProperty("castLogic");
 
         EditorGUILayout.PropertyField(prop, true);
-        so.ApplyModifiedProperties();
+        serializedObject.ApplyModifiedProperties();
 
     }
 
