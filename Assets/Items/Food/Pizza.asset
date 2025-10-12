@@ -10,10 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 9473f141c19d8c74bbd4a5a9f5110676, type: 3}
-  m_Name: Snicker
+  m_Name: Pizza
   m_EditorClassIdentifier: 
-  name: Snicker
-  id: 0
-  mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
-  material: {fileID: 2100000, guid: d481b5b8832c4794ab5c848cb043ab09, type: 2}
-  satiety: 10
+  name: Pizza
+  id: -1
+  mesh: {fileID: 0}
+  material: {fileID: 0}
+  satiety: 1

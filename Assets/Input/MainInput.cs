@@ -135,6 +135,24 @@ public partial class @MainInput: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": true
+                },
+                {
+                    ""name"": ""Primary"",
+                    ""type"": ""Button"",
+                    ""id"": ""0405440c-7a4d-4a87-a606-3f35aa9febda"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Secondary"",
+                    ""type"": ""Button"",
+                    ""id"": ""0343c729-4a56-4950-a228-bf936d26b050"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -412,6 +430,28 @@ public partial class @MainInput: IInputActionCollection2, IDisposable
                     ""action"": ""Cast spell"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""adcd91ba-5a1b-49ec-9dfa-9a134b35f7ec"",
+                    ""path"": ""<Mouse>/leftButton"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": "";Keyboard&Mouse"",
+                    ""action"": ""Primary"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""6287afa2-2d9e-4658-9cf7-3ce4ac4c12cb"",
+                    ""path"": ""<Mouse>/rightButton"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": "";Keyboard&Mouse"",
+                    ""action"": ""Secondary"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -486,6 +526,8 @@ public partial class @MainInput: IInputActionCollection2, IDisposable
         m_Player_UseLeftItem = m_Player.FindAction("Use Left Item", throwIfNotFound: true);
         m_Player_UseRightItem = m_Player.FindAction("Use Right Item", throwIfNotFound: true);
         m_Player_Castspell = m_Player.FindAction("Cast spell", throwIfNotFound: true);
+        m_Player_Primary = m_Player.FindAction("Primary", throwIfNotFound: true);
+        m_Player_Secondary = m_Player.FindAction("Secondary", throwIfNotFound: true);
     }
 
     ~@MainInput()
@@ -571,6 +613,8 @@ public partial class @MainInput: IInputActionCollection2, IDisposable
     private readonly InputAction m_Player_UseLeftItem;
     private readonly InputAction m_Player_UseRightItem;
     private readonly InputAction m_Player_Castspell;
+    private readonly InputAction m_Player_Primary;
+    private readonly InputAction m_Player_Secondary;
     /// <summary>
     /// Provides access to input actions defined in input action map "Player".
     /// </summary>
@@ -602,6 +646,14 @@ public partial class @MainInput: IInputActionCollection2, IDisposable
         /// Provides access to the underlying input action "Player/Castspell".
         /// </summary>
         public InputAction @Castspell => m_Wrapper.m_Player_Castspell;
+        /// <summary>
+        /// Provides access to the underlying input action "Player/Primary".
+        /// </summary>
+        public InputAction @Primary => m_Wrapper.m_Player_Primary;
+        /// <summary>
+        /// Provides access to the underlying input action "Player/Secondary".
+        /// </summary>
+        public InputAction @Secondary => m_Wrapper.m_Player_Secondary;
         /// <summary>
         /// Provides access to the underlying input action map instance.
         /// </summary>
@@ -643,6 +695,12 @@ public partial class @MainInput: IInputActionCollection2, IDisposable
             @Castspell.started += instance.OnCastspell;
             @Castspell.performed += instance.OnCastspell;
             @Castspell.canceled += instance.OnCastspell;
+            @Primary.started += instance.OnPrimary;
+            @Primary.performed += instance.OnPrimary;
+            @Primary.canceled += instance.OnPrimary;
+            @Secondary.started += instance.OnSecondary;
+            @Secondary.performed += instance.OnSecondary;
+            @Secondary.canceled += instance.OnSecondary;
         }
 
         /// <summary>
@@ -669,6 +727,12 @@ public partial class @MainInput: IInputActionCollection2, IDisposable
             @Castspell.started -= instance.OnCastspell;
             @Castspell.performed -= instance.OnCastspell;
             @Castspell.canceled -= instance.OnCastspell;
+            @Primary.started -= instance.OnPrimary;
+            @Primary.performed -= instance.OnPrimary;
+            @Primary.canceled -= instance.OnPrimary;
+            @Secondary.started -= instance.OnSecondary;
+            @Secondary.performed -= instance.OnSecondary;
+            @Secondary.canceled -= instance.OnSecondary;
         }
 
         /// <summary>
@@ -809,5 +873,19 @@ public partial class @MainInput: IInputActionCollection2, IDisposable
         /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
         /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
         void OnCastspell(InputAction.CallbackContext context);
+        /// <summary>
+        /// Method invoked when associated input action "Primary" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+        /// </summary>
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
+        void OnPrimary(InputAction.CallbackContext context);
+        /// <summary>
+        /// Method invoked when associated input action "Secondary" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+        /// </summary>
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
+        void OnSecondary(InputAction.CallbackContext context);
     }
 }
