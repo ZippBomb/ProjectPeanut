@@ -1,10 +1,8 @@
 using UnityEngine;
 
-public class Wall : MonoBehaviour {
+public class Wall : Stareable {
 
     [SerializeField] private float aggresionTime = 3.0f;
-
-    [SerializeField] private bool staredAt = false;
 
     private float unstaredTime = 0.0f;
 
@@ -20,7 +18,7 @@ public class Wall : MonoBehaviour {
 
     private void Update() {
 
-        if (!staredAt)
+        if (!isStaredAt)
             unstaredTime += Time.deltaTime;
 
         if (unstaredTime >= aggresionTime)
@@ -28,11 +26,11 @@ public class Wall : MonoBehaviour {
 
     }
 
-    public void SetStare(bool value) {
+    public override void SetStareAt(bool value) {
 
-        staredAt = value;
-        if (staredAt) {
-
+        base.SetStareAt(value);
+        if (value) {
+            
             unstaredTime = 0.0f;
             material.color = Color.white;
 

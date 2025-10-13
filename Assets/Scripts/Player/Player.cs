@@ -16,6 +16,13 @@ public class Player : MonoBehaviour {
 
     }
 
+    [Header("Body parts")]
+    [SerializeField] private Transform camera;
+
+    [Header("Stareables")]
+    [SerializeField] private LayerMask stareableMask;
+    [SerializeField] private Stareable currentStareable;
+
     [Header("Stats")]
     [SerializeField] private Stat[] stats = new Stat[] { new HealthStat(), new SatietyStat(), new ThirstStat(), new ExhaustionStat(), new ToiletStat() };
     [SerializeField] private Transform statIndicatorParent;
@@ -64,6 +71,8 @@ public class Player : MonoBehaviour {
 
         foreach (Stat stat in stats)
             stat.Update();
+
+        HandleStareableRay();
         
     }
 
@@ -75,6 +84,35 @@ public class Player : MonoBehaviour {
     private void OnDisable() {
 
         input.Disable();
+
+    }
+
+    // Stareables
+
+    public void HandleStareableRay() {
+        
+        RaycastHit hit;
+        if (Physics.Raycast(camera.position, camera.forward, out hit, 1000.0f, stareableMask)) {
+            
+            Stareable stareable = hit.collider.GetComponent<Stareable>();
+            if (stareable != null) {
+                
+                if (currentStareable != null)
+                    currentStareable.SetStareAt(false);
+
+                stareable.SetStareAt(true);
+                currentStareable = stareable;
+
+                return;
+
+            }
+
+        }
+
+        if (currentStareable == null) return;
+
+        currentStareable.SetStareAt(false);
+        currentStareable = null;
 
     }
 
@@ -144,6 +182,25 @@ public class Player : MonoBehaviour {
             default: Debug.LogError("Invalid hand passed to RemoveItem."); break;
 
         }
+
+    }
+
+    public bool HasItem(Item item) {
+        
+        if (leftItem == item || rightItem == item) return true;
+        return false;
+
+    }
+    public bool HasItemInLeft(Item item) {
+        
+        if (leftItem == item) return true;
+        return false;
+
+    }
+    public bool HasItemInRight(Item item) {
+        
+        if (rightItem == item) return true;
+        return false;
 
     }
 

@@ -379,6 +379,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cb1f62e96cc76554889ff6919d0c20b7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  camera: {fileID: 7904717070371448982}
+  stareableMask:
+    serializedVersion: 2
+    m_Bits: 64
+  currentStareable: {fileID: 0}
   stats:
   - name: Health
     value: 100
@@ -412,8 +417,8 @@ MonoBehaviour:
     backgroundColor: {r: 0.5382777, g: 0.5471698, b: 0, a: 1}
   statIndicatorParent: {fileID: 0}
   statIndicatorPrefab: {fileID: 2871151738545182816, guid: 040733cf16e99144e8d7496936dfc600, type: 3}
-  leftItem: {fileID: 11400000, guid: b4eb8d44b3df3ed4ca7d80fa6c503cbd, type: 2}
-  rightItem: {fileID: 11400000, guid: 722616646b89eac42ad283f74830f5f5, type: 2}
+  leftItem: {fileID: 11400000, guid: 10a698af4e377b1439a41cac6c501dfd, type: 2}
+  rightItem: {fileID: 0}
   leftItemPreview: {fileID: 2636667705942257060}
   rightItemPreview: {fileID: 5297069967493627434}
   spells:
@@ -449,10 +454,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   sensitivity: 2
   camera: {fileID: 7904717070371448982}
-  fireRayInterval: 5
-  wallMask:
-    serializedVersion: 2
-    m_Bits: 64
 --- !u!1 &5297069967493627434
 GameObject:
   m_ObjectHideFlags: 0

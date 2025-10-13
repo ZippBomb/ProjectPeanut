@@ -12,8 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9473f141c19d8c74bbd4a5a9f5110676, type: 3}
   m_Name: FrozenPizza
   m_EditorClassIdentifier: 
-  name: Item
-  id: -1
-  mesh: {fileID: 0}
-  material: {fileID: 0}
+  name: Frozen Pizza
+  id: 0
+  mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+  material: {fileID: 2100000, guid: 6e5ba212ab089ba4c8a5823470c7f225, type: 2}
   satiety: 1
+  edible: 0

@@ -6,10 +6,6 @@ public class PlayerLook : MonoBehaviour {
     [SerializeField] private float sensitivity = 1.0f;
     [SerializeField] private new Transform camera;
 
-    [Header("Wall")]
-    [SerializeField] private int fireRayInterval = 2;
-    [SerializeField] private LayerMask wallMask;
-
     private MainInput.PlayerActions inputMap;
     private float pitch;
 
@@ -34,17 +30,6 @@ public class PlayerLook : MonoBehaviour {
 
         transform.Rotate(Vector3.up, input.x);
         camera.localRotation = Quaternion.AngleAxis(pitch, Vector3.right);
-
-    }
-    private void FixedUpdate() {
-
-        rayFireTime++;
-        if (rayFireTime < fireRayInterval) return;
-
-        rayFireTime = 0;
-
-        RaycastHit hit;
-        wall.SetStare(Physics.Raycast(camera.transform.position, camera.transform.forward, out hit, 1000.0f, wallMask));
 
     }
 
