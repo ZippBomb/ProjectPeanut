@@ -379,7 +379,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cb1f62e96cc76554889ff6919d0c20b7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  camera: {fileID: 7904717070371448982}
+  camera: {fileID: 707517811511662440}
   stareableMask:
     serializedVersion: 2
     m_Bits: 64

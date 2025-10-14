@@ -2,9 +2,18 @@ using UnityEngine;
 
 public class Wall : Stareable {
 
-    [SerializeField] private float aggresionTime = 3.0f;
+    public static Wall instance;
 
-    private float unstaredTime = 0.0f;
+    private void Awake() {
+        
+        instance = this;
+
+    }
+
+    [SerializeField] private float hp = 200.0f;
+    [SerializeField] private float maxHP = 200.0f;
+    [SerializeField] private float damageRate = 1.0f;
+    [SerializeField] private float healRate = 0.7f;
 
     private Material material;
 
@@ -19,22 +28,14 @@ public class Wall : Stareable {
     private void Update() {
 
         if (!isStaredAt)
-            unstaredTime += Time.deltaTime;
+            hp -= damageRate * Time.deltaTime;
+        else
+            hp += healRate * Time.deltaTime;
 
-        if (unstaredTime >= aggresionTime)
-            material.color = Color.Lerp(material.color, Color.red, Time.deltaTime);
+        if (hp > maxHP)
+            hp = maxHP;
 
-    }
-
-    public override void SetStareAt(bool value) {
-
-        base.SetStareAt(value);
-        if (value) {
-            
-            unstaredTime = 0.0f;
-            material.color = Color.white;
-
-        }
+        material.color = Color.Lerp(Color.red, Color.white, hp / maxHP);
 
     }
 

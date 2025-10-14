@@ -17,7 +17,7 @@ public class Player : MonoBehaviour {
     }
 
     [Header("Body parts")]
-    [SerializeField] private Transform camera;
+    [SerializeField] private GameObject camera;
 
     [Header("Stareables")]
     [SerializeField] private LayerMask stareableMask;
@@ -92,7 +92,7 @@ public class Player : MonoBehaviour {
     public void HandleStareableRay() {
         
         RaycastHit hit;
-        if (Physics.Raycast(camera.position, camera.forward, out hit, 1000.0f, stareableMask)) {
+        if (Physics.Raycast(camera.transform.position, camera.transform.forward, out hit, 1000.0f, stareableMask)) {
             
             Stareable stareable = hit.collider.GetComponent<Stareable>();
             if (stareable != null) {
@@ -226,5 +226,7 @@ public class Player : MonoBehaviour {
         return Player.instance.stats[index];
 
     }
+
+    public static GameObject GetCamera() { return Player.instance.camera; }
 
 }

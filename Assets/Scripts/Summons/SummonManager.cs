@@ -1,4 +1,4 @@
-using Unity.Mathematics;
+using Unity.Collections;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -12,14 +12,19 @@ public class SummonManager : MonoBehaviour {
 
     }
 
+    [Header("References")]
     [SerializeField] private Transform player;
     [SerializeField] private Transform playerCamera;
 
+    [Header("Controls")]
+    [SerializeField] private float rotateSensitivity = 1.0f;
+
+    [Header("Preview")]
     [SerializeField] private GameObject previewPrefab;
+    [SerializeField, ReadOnly] private GameObject summon;
 
     private GameObject preview;
     private Transform previewMesh;
-    private GameObject summon;
 
     private void Start() {
         
@@ -44,6 +49,9 @@ public class SummonManager : MonoBehaviour {
         }
 
         preview.transform.position = hit.point;
+
+        float rotDelta = Game.input.Player.Rotate.ReadValue<float>() * rotateSensitivity;
+        preview.transform.Rotate(Vector3.up, rotDelta);
 
     }
 
@@ -74,6 +82,8 @@ public class SummonManager : MonoBehaviour {
 
         Instantiate(summon, preview.transform.position, preview.transform.rotation);
         preview.SetActive(false);
+
+        summon.GetComponent<Summon>().OnSummoned();
 
         summon = null;
 

@@ -728,7 +728,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isStaredAt: 0
-  aggresionTime: 3
+  hp: 200
+  maxHP: 200
+  damageRate: 1
+  healRate: 0.7
 --- !u!65 &1331194625
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -869,7 +872,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 1235091861}
   playerCamera: {fileID: 364811558}
+  rotateSensitivity: 3
   previewPrefab: {fileID: 3790707232615050377, guid: 117c706b2a5b30e47948f72ebb15b68e, type: 3}
+  summon: {fileID: 0}
 --- !u!1 &1649628809
 GameObject:
   m_ObjectHideFlags: 0
