@@ -38,6 +38,7 @@ public class SummonManager : MonoBehaviour {
     }
     private void Update() {
         
+        if (!Player.instance.alive) return;
         if (summon == null) return;
 
         RaycastHit hit;
@@ -78,6 +79,7 @@ public class SummonManager : MonoBehaviour {
 
     private void CastSummon(InputAction.CallbackContext ctx) {
         
+        if (!Player.instance.alive) return;
         if (summon == null) return;
 
         Instantiate(summon, preview.transform.position, preview.transform.rotation);

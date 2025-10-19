@@ -16,6 +16,8 @@ public class Player : MonoBehaviour {
 
     }
 
+    public bool alive = true;
+
     [Header("Body parts")]
     [SerializeField] private GameObject camera;
 
@@ -69,6 +71,8 @@ public class Player : MonoBehaviour {
     }
     private void Update() {
 
+        if (!alive) return;
+
         foreach (Stat stat in stats)
             stat.Update();
 
@@ -89,7 +93,7 @@ public class Player : MonoBehaviour {
 
     // Stareables
 
-    public void HandleStareableRay() {
+    private void HandleStareableRay() {
         
         RaycastHit hit;
         if (Physics.Raycast(camera.transform.position, camera.transform.forward, out hit, 1000.0f, stareableMask)) {
@@ -120,13 +124,17 @@ public class Player : MonoBehaviour {
     
     private void UseLeftItem(InputAction.CallbackContext ctx) {
 
+        if (!alive) return;
         if (leftItem == null) return;
+
         leftItem.Use(Hand.Left);
 
     }
     private void UseRightItem(InputAction.CallbackContext ctx) {
 
+        if (!alive) return;
         if (rightItem == null) return;
+
         rightItem.Use(Hand.Right);
 
     }
@@ -207,6 +215,8 @@ public class Player : MonoBehaviour {
     // Spell system
 
     private void CastSpell(InputAction.CallbackContext ctx) {
+
+        if (!alive) return;
 
         int value = (int) ctx.ReadValue<float>();
         if (value >= spells.Count || spells[value] == null) return;

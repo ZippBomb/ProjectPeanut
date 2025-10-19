@@ -19,11 +19,15 @@ public class PlayerMovement : MonoBehaviour {
     }
     private void Update() {
 
+        if (!Player.instance.alive) return;
+
         Vector2 input = inputMap.Move.ReadValue<Vector2>();
         direction = transform.right * input.x + transform.forward * input.y;
 
     }
     private void FixedUpdate() {
+
+        if (!Player.instance.alive) return;
 
         Vector3 force = direction.normalized * speed * 1000.0f;
         rb.AddForce(force);

@@ -27,6 +27,8 @@ public class Wall : Stareable {
 
     private void Update() {
 
+        if (!Player.instance.alive) return;
+
         if (!isStaredAt)
             hp -= damageRate * Time.deltaTime;
         else
@@ -34,6 +36,8 @@ public class Wall : Stareable {
 
         if (hp > maxHP)
             hp = maxHP;
+        else if (hp <= 0.0f)
+            GameManager.instance.GameOver();
 
         material.color = Color.Lerp(Color.red, Color.white, hp / maxHP);
 

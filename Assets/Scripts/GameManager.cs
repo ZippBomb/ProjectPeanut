@@ -1,4 +1,6 @@
+using UnityEditor;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour {
 
@@ -10,6 +12,8 @@ public class GameManager : MonoBehaviour {
         Game.Start();
 
     }
+
+    [SerializeField] private int apartmentSceneIndex = 1;
 
     [Header("Days")]
     // How long should each day last in minutes.
@@ -28,6 +32,9 @@ public class GameManager : MonoBehaviour {
     [Header("Clock")]
     [SerializeField] private Transform hourHand;
     [SerializeField] private Transform minuteHand;
+
+    [Header("Game over")]
+    [SerializeField] private GameObject gameOverScreen;
 
     float dayEnd = 0;
 
@@ -52,6 +59,8 @@ public class GameManager : MonoBehaviour {
     }
     private void Update() {
 
+        if (!Player.instance.alive) return;
+
         float dayProgress = (GetDayLength() - (dayEnd - Time.time)) / GetDayLength();
 
         hourHand.transform.rotation = Quaternion.Euler(dayProgress * 2.0f * 360.0f - 90.0f, 90.0f, -90.0f);
@@ -63,6 +72,30 @@ public class GameManager : MonoBehaviour {
             dayEnd = Time.time + GetDayLength();
 
         }
+
+    }
+
+    public void GameOver() {
+        
+        gameOverScreen.SetActive(true);
+        Player.instance.alive = false;
+
+        Cursor.visible = true;
+        Cursor.lockState = CursorLockMode.None;
+
+        Time.timeScale = 0.0f;
+
+    }
+
+    public void Restart() {
+        
+        Debug.Log("Restarting game.");
+        SceneManager.LoadScene(apartmentSceneIndex);
+
+    }
+    public void Quit() {
+        
+        Game.Quit();
 
     }
 
