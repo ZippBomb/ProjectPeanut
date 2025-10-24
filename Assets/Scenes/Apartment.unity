@@ -1175,6 +1175,10 @@ MonoBehaviour:
   maxHP: 200
   damageRate: 1
   healRate: 0.7
+  stage: 0
+  baseDamage: 0.8
+  gameOverDamage: 1
+  gameOverDamageMultiplier: 2
 --- !u!65 &1331194625
 BoxCollider:
   m_ObjectHideFlags: 0

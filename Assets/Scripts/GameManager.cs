@@ -81,7 +81,6 @@ public class GameManager : MonoBehaviour {
     public void GameOver() {
         
         gameOverScreen.SetActive(true);
-        Player.instance.alive = false;
 
         Cursor.visible = true;
         Cursor.lockState = CursorLockMode.None;
@@ -93,7 +92,9 @@ public class GameManager : MonoBehaviour {
     public void Restart() {
         
         Debug.Log("Restarting game.");
+
         SceneManager.LoadScene(apartmentSceneIndex);
+        Time.timeScale = 1.0f;
 
     }
     public void Quit() {
