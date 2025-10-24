@@ -24,6 +24,7 @@ public class GameManager : MonoBehaviour {
 #endif
     // Which day is it today.
     [SerializeField] private int day = 1;
+    [SerializeField] private float difficultyMultiplier;
 
     [Header("References")]
     [SerializeField] private Player player;
@@ -70,6 +71,8 @@ public class GameManager : MonoBehaviour {
 
             day++;
             dayEnd = Time.time + GetDayLength();
+
+            Wall.instance.damageRate *= difficultyMultiplier;
 
         }
 

@@ -14,6 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   name: Pizza
   id: 1
-  mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+  mesh: {fileID: 4300000, guid: 1a2dd2caa93f06448bad56e005883ec4, type: 2}
   material: {fileID: 2100000, guid: d481b5b8832c4794ab5c848cb043ab09, type: 2}
   satiety: 20
+  edible: 1

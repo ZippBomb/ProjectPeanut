@@ -12,8 +12,10 @@ public class Wall : Stareable {
 
     [SerializeField] private float hp = 200.0f;
     [SerializeField] private float maxHP = 200.0f;
-    [SerializeField] private float damageRate = 1.0f;
+    public float damageRate = 1.0f;
     [SerializeField] private float healRate = 0.7f;
+
+    private float hpPercantage = 1.0f;
 
     private Material material;
 
@@ -29,6 +31,16 @@ public class Wall : Stareable {
 
         if (!Player.instance.alive) return;
 
+        UpdateHP();
+        HandleStage();
+
+        // Temporary, just to visualise the hp.
+        material.color = Color.Lerp(Color.red, Color.white, hp / maxHP);
+
+    }
+
+    private void UpdateHP() {
+        
         if (!isStaredAt)
             hp -= damageRate * Time.deltaTime;
         else
@@ -39,7 +51,12 @@ public class Wall : Stareable {
         else if (hp <= 0.0f)
             GameManager.instance.GameOver();
 
-        material.color = Color.Lerp(Color.red, Color.white, hp / maxHP);
+        hpPercantage = hp / maxHP;
+        
+    }
+    private void HandleStage() {
+        
+        //
 
     }
 
