@@ -24,6 +24,7 @@ public class GameManager : MonoBehaviour {
 #endif
     // Which day is it today.
     [SerializeField] private int day = 1;
+    [SerializeField] private float difficultyMultiplier;
 
     [Header("References")]
     [SerializeField] private Player player;
@@ -71,6 +72,8 @@ public class GameManager : MonoBehaviour {
             day++;
             dayEnd = Time.time + GetDayLength();
 
+            Wall.instance.damageRate *= difficultyMultiplier;
+
         }
 
     }
@@ -78,7 +81,6 @@ public class GameManager : MonoBehaviour {
     public void GameOver() {
         
         gameOverScreen.SetActive(true);
-        Player.instance.alive = false;
 
         Cursor.visible = true;
         Cursor.lockState = CursorLockMode.None;
@@ -90,7 +92,9 @@ public class GameManager : MonoBehaviour {
     public void Restart() {
         
         Debug.Log("Restarting game.");
+
         SceneManager.LoadScene(apartmentSceneIndex);
+        Time.timeScale = 1.0f;
 
     }
     public void Quit() {

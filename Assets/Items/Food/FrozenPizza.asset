@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   name: Frozen Pizza
   id: 0
-  mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+  mesh: {fileID: 4300000, guid: 1a2dd2caa93f06448bad56e005883ec4, type: 2}
   material: {fileID: 2100000, guid: 6e5ba212ab089ba4c8a5823470c7f225, type: 2}
   satiety: 1
   edible: 0

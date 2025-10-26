@@ -167,7 +167,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -0.5, y: -0.25, z: 0.65}
-  m_LocalScale: {x: 0.1, y: 0.1, z: 0.1}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 7904717070371448982}
@@ -224,7 +224,7 @@ MeshFilter:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2636667705942257060}
-  m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+  m_Mesh: {fileID: 4300000, guid: 1a2dd2caa93f06448bad56e005883ec4, type: 2}
 --- !u!1 &3151048040250220544
 GameObject:
   m_ObjectHideFlags: 0
@@ -258,7 +258,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 1.5, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 1, y: 0.9, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 7904717070371448982}
@@ -324,7 +324,7 @@ CapsuleCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3151048040250220544}
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 13400000, guid: 57da7802ac67acd408a331ad45da60b4, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -379,6 +379,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cb1f62e96cc76554889ff6919d0c20b7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  alive: 1
   camera: {fileID: 707517811511662440}
   stareableMask:
     serializedVersion: 2
@@ -418,7 +419,7 @@ MonoBehaviour:
   statIndicatorParent: {fileID: 0}
   statIndicatorPrefab: {fileID: 2871151738545182816, guid: 040733cf16e99144e8d7496936dfc600, type: 3}
   leftItem: {fileID: 11400000, guid: 10a698af4e377b1439a41cac6c501dfd, type: 2}
-  rightItem: {fileID: 0}
+  rightItem: {fileID: 11400000, guid: 586abfc6f8fac344e941c2e8d789162b, type: 2}
   leftItemPreview: {fileID: 2636667705942257060}
   rightItemPreview: {fileID: 5297069967493627434}
   spells:
@@ -439,7 +440,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b97f28340f1cb914bb657d0a1e2f88d1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 3
+  speed: 2
 --- !u!114 &658366270089756787
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -452,7 +453,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 465aa99c8abd9f54f986f491fd12406e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sensitivity: 2
+  sensitivity: 1.6
   camera: {fileID: 7904717070371448982}
 --- !u!1 &5297069967493627434
 GameObject:
@@ -482,7 +483,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0.5, y: -0.25, z: 0.65}
-  m_LocalScale: {x: 0.1, y: 0.1, z: 0.1}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 7904717070371448982}
@@ -539,4 +540,4 @@ MeshFilter:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5297069967493627434}
-  m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+  m_Mesh: {fileID: 4300000, guid: 1a2dd2caa93f06448bad56e005883ec4, type: 2}

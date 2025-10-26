@@ -91,6 +91,14 @@ public class Player : MonoBehaviour {
 
     }
 
+    public void Die() {
+        
+        alive = false;
+
+        GameManager.instance.GameOver();
+
+    }
+
     // Stareables
 
     private void HandleStareableRay() {
