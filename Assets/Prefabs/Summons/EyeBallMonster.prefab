@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 1647313520655823558}
   - component: {fileID: 370327083828963573}
   - component: {fileID: 4578608733473786903}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Body_low
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -96,7 +96,8 @@ GameObject:
   m_Component:
   - component: {fileID: 694399836682026881}
   - component: {fileID: 1970629767691473890}
-  m_Layer: 0
+  - component: {fileID: 803254175219987611}
+  m_Layer: 7
   m_Name: EyeBallMonster
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -144,6 +145,27 @@ MonoBehaviour:
   wallMask:
     serializedVersion: 2
     m_Bits: 64
+--- !u!65 &803254175219987611
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6454006969326718071}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.5999999, y: 1.7999997, z: 0.6999998}
+  m_Center: {x: 0.00000023841858, y: -0.9000001, z: -0.1500001}
 --- !u!1 &7841885264028199922
 GameObject:
   m_ObjectHideFlags: 0
@@ -155,7 +177,7 @@ GameObject:
   - component: {fileID: 6027309987842529461}
   - component: {fileID: 823223654541610473}
   - component: {fileID: 2452674356058575760}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Sphere_low
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -241,7 +263,7 @@ GameObject:
   - component: {fileID: 7863421919111303509}
   - component: {fileID: 789439112229086959}
   - component: {fileID: 5664642774528235240}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Eye_low
   m_TagString: Untagged
   m_Icon: {fileID: 0}

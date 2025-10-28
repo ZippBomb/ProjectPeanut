@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using UnityEngine;
 
 public class Wall : Stareable {
@@ -14,7 +15,6 @@ public class Wall : Stareable {
     [SerializeField] private float hp = 200.0f;
     [SerializeField] private float maxHP = 200.0f;
     public float damageRate = 1.0f;
-    public float healRate = 0.7f;
 
     private float hpPercantage = 1.0f;
 
@@ -22,6 +22,17 @@ public class Wall : Stareable {
 
     [Header("Stage 1")]
     [SerializeField] private float baseDamage = 1.0f;
+
+    [Header("Stage 2")]
+    [SerializeField] private GameObject riftPrefab;
+    [SerializeField] private float spawnTimer = 5.0f;
+    [SerializeField, Range(0, 100)] private float spawnChance = 50;
+
+    [SerializeField] private int numOfRifts = 0;
+
+    private List<Summon> unitsInRange = new List<Summon>();
+
+    private float lastSpawnTime = 0.0f;
 
     [Header("Stage 3")]
     [SerializeField] private float gameOverDamage = 1.0f;
@@ -58,8 +69,6 @@ public class Wall : Stareable {
         
         if (!isStaredAt)
             hp -= damageRate * Time.deltaTime;
-        else
-            hp += healRate * Time.deltaTime;
 
         hp = Mathf.Clamp(hp, 0.0f, maxHP);
         hpPercantage = hp / maxHP;
@@ -76,7 +85,7 @@ public class Wall : Stareable {
 
             stage = 1;
 
-            ConstantPlayerDamage();
+            ConstantPlayerDamage(1.0f);
 
         } else if (hpPercantage > 0.0f) {
 
@@ -86,7 +95,8 @@ public class Wall : Stareable {
 
             stage = 2; // Damage + Rifts
 
-            ConstantPlayerDamage();
+            ConstantPlayerDamage(1.2f);
+            SpawnRifts();
 
         } else {
 
@@ -99,10 +109,37 @@ public class Wall : Stareable {
 
     }
 
-    private void ConstantPlayerDamage() {
+    private void ConstantPlayerDamage(float scale) {
         
-        playerHealth.Damage(baseDamage * Time.deltaTime);
+        playerHealth.Damage(baseDamage * scale * Time.deltaTime);
 
     }
+    private void SpawnRifts() {
+
+        if (Time.time < lastSpawnTime + spawnTimer) return;
+        if (Random.Range(0, 100) > spawnChance) return;
+
+        float x = Random.Range(-0.48f, 0.48f);
+        float y = Random.Range(-0.48f, 0.48f);
+
+        InstantiateParameters parameters = new InstantiateParameters();
+        parameters.worldSpace = false;
+        parameters.parent = transform;
+
+        Instantiate(riftPrefab, new Vector3(x, y, -0.5f), Quaternion.identity, parameters);
+        
+        numOfRifts++;
+        lastSpawnTime = Time.time;
+
+    }
+
+    private void OnTriggerEnter(Collider other) {
+
+        if (other.gameObject.layer != 7) return;
+        Debug.Log(other.gameObject.name);
+
+    }
+
+    public static void AddUnitInRange(Summon unit) { Wall.instance.unitsInRange.Add(unit); }
     
 }

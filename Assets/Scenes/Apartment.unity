@@ -1135,6 +1135,7 @@ GameObject:
   - component: {fileID: 1331194627}
   - component: {fileID: 1331194626}
   - component: {fileID: 1331194625}
+  - component: {fileID: 1331194628}
   - component: {fileID: 1331194624}
   m_Layer: 6
   m_Name: Wall
@@ -1173,10 +1174,13 @@ MonoBehaviour:
   isStaredAt: 0
   hp: 200
   maxHP: 200
-  damageRate: 1
-  healRate: 0.7
+  damageRate: 10
   stage: 0
   baseDamage: 0.8
+  riftPrefab: {fileID: 1531692958872227086, guid: 396e6f72377be2048a321399dcc942a8, type: 3}
+  spawnTimer: 5
+  spawnChance: 50
+  numOfRifts: 0
   gameOverDamage: 1
   gameOverDamageMultiplier: 2
 --- !u!65 &1331194625
@@ -1253,6 +1257,27 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1331194622}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!65 &1331194628
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1331194622}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.99999994, y: 0.99999994, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &1452315334
 GameObject:
   m_ObjectHideFlags: 0
