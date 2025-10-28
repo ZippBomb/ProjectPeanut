@@ -86,6 +86,7 @@ public class SummonManager : MonoBehaviour {
         preview.SetActive(false);
 
         summon.GetComponent<Summon>().OnSummoned();
+        Wall.instance.UpdateUnitsInRange();
 
         summon = null;
 

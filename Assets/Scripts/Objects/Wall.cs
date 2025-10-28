@@ -28,7 +28,13 @@ public class Wall : Stareable {
     [SerializeField] private float spawnTimer = 5.0f;
     [SerializeField, Range(0, 100)] private float spawnChance = 50;
 
+    [Space]
+    [SerializeField] private float riftDamage = 1.0f;
     [SerializeField] private int numOfRifts = 0;
+
+    [Space]
+    [SerializeField] private float riftRange = 2.0f;
+    [SerializeField] private LayerMask riftLayerMask;
 
     private List<Summon> unitsInRange = new List<Summon>();
 
@@ -116,6 +122,12 @@ public class Wall : Stareable {
     }
     private void SpawnRifts() {
 
+        foreach (Summon summon in unitsInRange) {
+            
+            summon.Damage(riftDamage * numOfRifts * Time.deltaTime);
+
+        }
+
         if (Time.time < lastSpawnTime + spawnTimer) return;
         if (Random.Range(0, 100) > spawnChance) return;
 
@@ -126,7 +138,7 @@ public class Wall : Stareable {
         parameters.worldSpace = false;
         parameters.parent = transform;
 
-        Instantiate(riftPrefab, new Vector3(x, y, -0.5f), Quaternion.identity, parameters);
+        Instantiate(riftPrefab, new Vector3(x, y, 0.5f), Quaternion.identity, parameters);
         
         numOfRifts++;
         lastSpawnTime = Time.time;
@@ -140,6 +152,39 @@ public class Wall : Stareable {
 
     }
 
-    public static void AddUnitInRange(Summon unit) { Wall.instance.unitsInRange.Add(unit); }
-    
+    public void UpdateUnitsInRange() {
+
+        unitsInRange.Clear();
+
+        Vector3 center = transform.position + transform.forward * (riftRange / 2.0f);
+        Vector3 extents = new Vector3(transform.localScale.x / 2.0f, transform.localScale.y / 2.0f, riftRange / 2.0f);
+        
+        Collider[] colliders = Physics.OverlapBox(center, extents, transform.rotation, riftLayerMask);
+        foreach (Collider collider in colliders) {
+            
+            Summon summon = collider.GetComponent<Summon>();
+            if (summon == null) {
+                
+                Debug.LogError("An object with summon layer was in range of wall rifts, but did not have a Summon component. Name: " + collider.gameObject.name);
+                continue;
+
+            }
+
+            unitsInRange.Add(summon);
+
+        }
+        
+    }
+
+    void OnDrawGizmos() {
+
+        Vector3 center = transform.position + transform.forward * (riftRange / 2.0f);
+        Vector3 extents = new Vector3(transform.localScale.x / 2.0f, transform.localScale.y / 2.0f, riftRange / 2.0f);
+
+        Gizmos.color = Color.green;
+        Gizmos.matrix = Matrix4x4.TRS(center, transform.rotation, Vector3.one);
+        Gizmos.DrawWireCube(Vector3.zero, extents * 2f);
+        
+    }
+
 }

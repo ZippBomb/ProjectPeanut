@@ -9,12 +9,7 @@ public class PlayerLook : MonoBehaviour {
     private MainInput.PlayerActions inputMap;
     private float pitch;
 
-    private Wall wall;
-    private int rayFireTime = 0;
-
     private void Start() {
-
-        wall = GameManager.instance.GetWall();
 
         inputMap = Player.instance.input;
         pitch = camera.localEulerAngles.x;
