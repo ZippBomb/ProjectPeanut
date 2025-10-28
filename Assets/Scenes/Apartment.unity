@@ -1174,7 +1174,7 @@ MonoBehaviour:
   isStaredAt: 0
   hp: 200
   maxHP: 200
-  damageRate: 10
+  damageRate: 1
   stage: 0
   baseDamage: 0.8
   riftPrefab: {fileID: 1531692958872227086, guid: 396e6f72377be2048a321399dcc942a8, type: 3}
