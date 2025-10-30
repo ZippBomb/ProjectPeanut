@@ -45,10 +45,7 @@ public class Stat {
     public virtual void Update() {
 
         value += replenishRate * Time.deltaTime;
-        if (value > maxValue)
-            value = maxValue;
-        else if (value < 0.0f)
-            value = 0.0f;
+        value = Mathf.Clamp(value, 0.0f, maxValue);
 
         UpdateIndicator();
 
@@ -57,16 +54,13 @@ public class Stat {
     public virtual void Replenish(float amount) {
 
         value += amount;
-        if (value > maxValue)
-            value = maxValue;
-        else if (value < 0.0f)
-            value = 0.0f;    
+        value = Mathf.Clamp(value, 0.0f, maxValue);
 
         UpdateIndicator();
 
     }
 
-    private void UpdateIndicator() {
+    protected void UpdateIndicator() {
 
         indicator.value = value / maxValue;
 
