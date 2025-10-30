@@ -2,7 +2,15 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour {
 
-    [SerializeField] private float speed = 1.0f;
+    public static PlayerMovement instance;
+
+    private void Awake() {
+
+        instance = this;
+        
+    }
+
+    public float speed = 1.0f;
 
     private MainInput.PlayerActions inputMap;
 
