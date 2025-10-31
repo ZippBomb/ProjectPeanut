@@ -1,8 +1,6 @@
 using System.Collections.Generic;
-using Unity.VisualScripting.Antlr3.Runtime.Misc;
 using UnityEngine;
 using UnityEngine.InputSystem;
-using UnityEngine.Video;
 
 public class Player : MonoBehaviour {
 
@@ -19,7 +17,7 @@ public class Player : MonoBehaviour {
     public bool alive = true;
 
     [Header("Body parts")]
-    [SerializeField] private GameObject camera;
+    [SerializeField] private GameObject cam;
 
     [Header("Stareables")]
     [SerializeField] private LayerMask stareableMask;
@@ -104,7 +102,7 @@ public class Player : MonoBehaviour {
     private void HandleStareableRay() {
         
         RaycastHit hit;
-        if (Physics.Raycast(camera.transform.position, camera.transform.forward, out hit, 1000.0f, stareableMask)) {
+        if (Physics.Raycast(cam.transform.position, cam.transform.forward, out hit, 1000.0f, stareableMask)) {
             
             Stareable stareable = hit.collider.GetComponent<Stareable>();
             if (stareable != null) {
@@ -152,8 +150,11 @@ public class Player : MonoBehaviour {
         leftItem = item;
 
         leftItemPreview.SetActive(true);
+
         leftItemPreview.GetComponent<MeshFilter>().mesh = item.mesh;
         leftItemPreview.GetComponent<MeshRenderer>().material = item.material;
+
+        leftItemPreview.transform.localEulerAngles = item.rotation;
 
     }
     public void SetRightItem(Item item) {
@@ -161,8 +162,11 @@ public class Player : MonoBehaviour {
         rightItem = item;
 
         rightItemPreview.SetActive(true);
+
         rightItemPreview.GetComponent<MeshFilter>().mesh = item.mesh;
         rightItemPreview.GetComponent<MeshRenderer>().material = item.material;
+
+        rightItemPreview.transform.localEulerAngles = item.rotation;
 
     }
     public void SetItem(Hand hand, Item item) {
@@ -240,11 +244,11 @@ public class Player : MonoBehaviour {
 
         int index = (int) type;
 
-        Game.Assert(index < Player.instance.stats.Length, "Invalid Stat type.");
-        return Player.instance.stats[index];
+        Game.Assert(index < instance.stats.Length, "Invalid Stat type.");
+        return instance.stats[index];
 
     }
 
-    public static GameObject GetCamera() { return Player.instance.camera; }
+    public static GameObject GetCamera() { return instance.cam; }
 
 }

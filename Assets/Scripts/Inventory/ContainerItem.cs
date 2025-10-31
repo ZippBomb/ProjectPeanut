@@ -3,6 +3,7 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "Container", menuName = "Items/Container", order = 3)]
 public class ContainerItem : Item {
 
+    [Header("Container")]
     public DrinkItem drink;
 
     public override void Use(Hand hand) {

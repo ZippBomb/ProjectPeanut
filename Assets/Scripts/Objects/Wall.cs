@@ -38,7 +38,7 @@ public class Wall : Stareable {
 
     private List<Summon> unitsInRange = new List<Summon>();
 
-    private float lastSpawnTime = 0.0f;
+    private float lastSpawnAttempt = 0.0f;
 
     [Header("Stage 3")]
     [SerializeField] private float gameOverDamage = 1.0f;
@@ -102,7 +102,7 @@ public class Wall : Stareable {
             stage = 2; // Damage + Rifts
 
             ConstantPlayerDamage(1.2f);
-            SpawnRifts();
+            HandleRifts();
 
         } else {
 
@@ -116,11 +116,15 @@ public class Wall : Stareable {
     }
 
     private void ConstantPlayerDamage(float scale) {
+
+        if (isStaredAt) return;
         
         playerHealth.Damage(baseDamage * scale * Time.deltaTime);
 
     }
-    private void SpawnRifts() {
+    private void HandleRifts() {
+
+        // Damage all units in range.
 
         foreach (Summon summon in unitsInRange) {
             
@@ -128,7 +132,15 @@ public class Wall : Stareable {
 
         }
 
-        if (Time.time < lastSpawnTime + spawnTimer) return;
+        if (isStaredAt) return;
+
+        // Rift spawning.
+        // Every spawnTimer seconds, a rift will attempt to spawn, which will succeed spawnChance percent of time.
+        // The rifts spawn at random places on the wall.
+
+        if (Time.time < lastSpawnAttempt + spawnTimer) return;
+        
+        lastSpawnAttempt = Time.time;
         if (Random.Range(0, 100) > spawnChance) return;
 
         float x = Random.Range(-0.48f, 0.48f);
@@ -141,14 +153,6 @@ public class Wall : Stareable {
         Instantiate(riftPrefab, new Vector3(x, y, 0.5f), Quaternion.identity, parameters);
         
         numOfRifts++;
-        lastSpawnTime = Time.time;
-
-    }
-
-    private void OnTriggerEnter(Collider other) {
-
-        if (other.gameObject.layer != 7) return;
-        Debug.Log(other.gameObject.name);
 
     }
 

@@ -2,8 +2,16 @@ using UnityEngine;
 
 public class PlayerLook : MonoBehaviour {
 
+    public static PlayerLook instance;
+
+    private void Awake() {
+
+        instance = this;
+        
+    }
+
     [Header("Look")]
-    [SerializeField] private float sensitivity = 1.0f;
+    public float sensitivity = 1.0f;
     [SerializeField] private new Transform camera;
 
     private MainInput.PlayerActions inputMap;

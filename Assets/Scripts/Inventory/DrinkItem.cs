@@ -3,6 +3,7 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "Drink", menuName = "Items/Drink", order = 2)]
 public class DrinkItem : Item {
 
+    [Header("Drink")]
     public float satiety = 1.0f;
     public ContainerItem container;
 

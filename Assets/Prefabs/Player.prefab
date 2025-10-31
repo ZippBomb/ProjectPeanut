@@ -166,7 +166,7 @@ Transform:
   m_GameObject: {fileID: 2636667705942257060}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.5, y: -0.25, z: 0.65}
+  m_LocalPosition: {x: -0.5, y: -0.3, z: 0.65}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 1
   m_Children: []
@@ -380,7 +380,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   alive: 1
-  camera: {fileID: 707517811511662440}
+  cam: {fileID: 707517811511662440}
   stareableMask:
     serializedVersion: 2
     m_Bits: 64
@@ -482,7 +482,7 @@ Transform:
   m_GameObject: {fileID: 5297069967493627434}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.5, y: -0.25, z: 0.65}
+  m_LocalPosition: {x: 0.5, y: -0.3, z: 0.65}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 1
   m_Children: []
