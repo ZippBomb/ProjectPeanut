@@ -815,9 +815,17 @@ PrefabInstance:
       value: Player
       objectReference: {fileID: 0}
     - target: {fileID: 4444462620945935875, guid: f6db0d2226f43bc4c80c1183eab75e34, type: 3}
+      propertyPath: spells.Array.size
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 4444462620945935875, guid: f6db0d2226f43bc4c80c1183eab75e34, type: 3}
       propertyPath: statIndicatorParent
       value: 
       objectReference: {fileID: 255087065}
+    - target: {fileID: 4444462620945935875, guid: f6db0d2226f43bc4c80c1183eab75e34, type: 3}
+      propertyPath: 'spells.Array.data[5]'
+      value: 
+      objectReference: {fileID: 11400000, guid: 4d278fff318ea0c45acca0d32c39fd33, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1185,7 +1193,7 @@ MonoBehaviour:
   spawnTimer: 5
   spawnChance: 50
   riftDamage: 1
-  numOfRifts: 0
+  rifts: []
   riftRange: 4
   riftLayerMask:
     serializedVersion: 2

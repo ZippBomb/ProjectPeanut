@@ -9,7 +9,7 @@ public class Rift : Stareable {
     [SerializeField] private float healRate = 1.0f;
 
     private Vector3 startScale;
-    
+
     private void Start() {
         
         health = 1;
@@ -26,13 +26,29 @@ public class Rift : Stareable {
             health += healRate * Time.deltaTime;
 
         health = Mathf.Clamp(health, 0, maxHealth);
-
         if (health == 0.0f)
-            Destroy(gameObject);
+            Die();
 
         // Grow/shrink based on hp
 
         transform.localScale = startScale * (health / maxHealth);
+
+    }
+
+    private void Die() {
+
+        Wall.instance.RemoveRift(this);
+        Destroy(gameObject);
+
+    }
+
+    public void Damage(float damage) {
+
+        health -= damage;
+        health  = Mathf.Clamp(health, 0, maxHealth);
+
+        if (health == 0.0f)
+            Die();
 
     }
 

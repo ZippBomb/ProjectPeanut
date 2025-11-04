@@ -7,15 +7,30 @@ public abstract class Summon : MonoBehaviour {
     [SerializeField] private float maxHealth = 100.0f;
     [SerializeField] private float damageRate = 1.0f;
 
+    [Header("Wall")]
+    public bool inWallRange = false;
+
     [Header("Preview")]
     [SerializeField] private Mesh previewMesh;
 
     [Space]
     [SerializeField] private Vector3 previewOffset;
-    [SerializeField] private Vector3 previewSize;
+    [SerializeField] private Vector3 previewSize = Vector3.one;
     [SerializeField] private Vector3 previewRotation;
 
     private void Update() {
+
+        UpdateSummon();
+
+    }
+    private void OnDestroy() {
+        
+        if (Wall.instance != null)
+            Wall.instance.UpdateUnitsInRange();
+
+    }
+
+    protected void UpdateSummon() {
         
         health -= damageRate * Time.deltaTime;
         if (health <= 0.0f)

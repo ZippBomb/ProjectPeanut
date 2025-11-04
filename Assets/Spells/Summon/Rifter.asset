@@ -10,16 +10,16 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d74d2536d64b3634da50c80a92a779d5, type: 3}
-  m_Name: Eyeball
+  m_Name: Rifter
   m_EditorClassIdentifier: 
   castLogic:
-    rid: 7911273245469048908
+    rid: 7911273245469048907
   castLogicType: 1
-  summon: {fileID: 6454006969326718071, guid: ae45413d9438bf84dadcf551ae90578f, type: 3}
+  summon: {fileID: 4562504116103368894, guid: 57342885fb4448f47b8d9eba86592240, type: 3}
   references:
     version: 2
     RefIds:
-    - rid: 7911273245469048908
+    - rid: 7911273245469048907
       type: {class: CooldownCastLogic, ns: , asm: Assembly-CSharp}
       data:
         cooldown: 60

@@ -16,6 +16,8 @@ public class Eyeball : Summon {
 
     private void Update() {
 
+        UpdateSummon();
+
         RaycastHit hit;
         if (!Physics.Raycast(eye.position, -eye.up, out hit, 1000.0f, wallMask)) {
             
@@ -35,6 +37,8 @@ public class Eyeball : Summon {
     }
 
     void OnDestroy() {
+
+        if (Wall.instance == null) return;
         
         Wall.instance.SetStareAt(false);
         Wall.instance.UpdateUnitsInRange();

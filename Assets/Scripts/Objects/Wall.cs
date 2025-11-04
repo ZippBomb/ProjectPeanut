@@ -30,7 +30,7 @@ public class Wall : Stareable {
 
     [Space]
     [SerializeField] private float riftDamage = 1.0f;
-    [SerializeField] private int numOfRifts = 0;
+    [SerializeField] private List<Rift> rifts = new List<Rift>();
 
     [Space]
     [SerializeField] private float riftRange = 2.0f;
@@ -47,6 +47,8 @@ public class Wall : Stareable {
     private HealthStat playerHealth;
 
     private Material material;
+
+    // General
 
     private void Start() {
 
@@ -80,6 +82,8 @@ public class Wall : Stareable {
         hpPercantage = hp / maxHP;
         
     }
+
+    // Stages
 
     private void HandleStage() {
         
@@ -115,6 +119,8 @@ public class Wall : Stareable {
 
     }
 
+    // Stage 1: Constant player damage
+    //          The player will be damaged by a certain damage rate, scaled by scale, constantly.
     private void ConstantPlayerDamage(float scale) {
 
         if (isStaredAt) return;
@@ -122,13 +128,19 @@ public class Wall : Stareable {
         playerHealth.Damage(baseDamage * scale * Time.deltaTime);
 
     }
+
+    // Stage 2: Rifts
+    //          Rifts will spawn on the wall randomly every few seconds, once spawned, they will
+    //          slowly damage units in range (unitsInRange list), and also grow in size. Staring
+    //          at them will decrease their size, or a rifter unit can be spawned to do that 
+    //          automatically.
     private void HandleRifts() {
 
         // Damage all units in range.
 
         foreach (Summon summon in unitsInRange) {
             
-            summon.Damage(riftDamage * numOfRifts * Time.deltaTime);
+            summon.Damage(riftDamage * rifts.Count * Time.deltaTime);
 
         }
 
@@ -150,11 +162,34 @@ public class Wall : Stareable {
         parameters.worldSpace = false;
         parameters.parent = transform;
 
-        Instantiate(riftPrefab, new Vector3(x, y, 0.5f), Quaternion.identity, parameters);
-        
-        numOfRifts++;
+        GameObject riftGO = Instantiate(riftPrefab, new Vector3(x, y, 0.5f), Quaternion.identity, parameters);
+        Rift rift = riftGO.GetComponent<Rift>();
+        Game.Assert(rift != null, "Instantiated riftPrefab does not have a Rift component.");
+
+        rifts.Add(rift);
 
     }
+
+    public void DamageRifts(float damage) {
+
+        for (int i = rifts.Count - 1; i >= 0; i--) {
+
+            rifts[i].Damage(damage);
+
+        }
+
+    }
+
+    public void RemoveRift(Rift rift) {
+
+        Game.Assert(rift != null, "Can't remove invalid rift (null).");
+        Game.Assert(rifts.Contains(rift), "Can't remove invalid rift (not contained).");
+
+        rifts.Remove(rift);
+
+    }
+
+    // Wall range
 
     public void UpdateUnitsInRange() {
 
@@ -175,10 +210,13 @@ public class Wall : Stareable {
             }
 
             unitsInRange.Add(summon);
+            summon.inWallRange = true;
 
         }
         
     }
+
+    // Debug
 
     void OnDrawGizmos() {
 
