@@ -145,6 +145,20 @@ public class Player : MonoBehaviour {
 
     }
     
+    public Item GetLeftItem() { return leftItem; }
+    public Item GetRightItem() { return rightItem; }
+    public Item GetItem(Hand hand) {
+
+        switch (hand) {
+
+            case Hand.Left: return leftItem;
+            case Hand.Right: return rightItem;
+            default: Debug.LogError("Invalid hand passed to GetItem."); return null;
+
+        }
+
+    }
+    
     public void SetLeftItem(Item item) {
 
         leftItem = item;
@@ -180,7 +194,7 @@ public class Player : MonoBehaviour {
         }
 
     }
-    
+
     public void RemoveLeftItem() {
 
         leftItem = null;
