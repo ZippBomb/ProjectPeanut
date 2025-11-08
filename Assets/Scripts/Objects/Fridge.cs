@@ -32,7 +32,6 @@ public class Fridge : Stareable {
 
     private void Interact(InputAction.CallbackContext ctx) {
 
-        if (!Player.instance.alive || !isStaredAt) return;
         if (inStock.Count == 0) return;
 
         Item item = inStock[0];

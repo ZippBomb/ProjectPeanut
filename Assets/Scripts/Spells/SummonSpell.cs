@@ -7,6 +7,7 @@ public class SummonSpell : Spell {
 
     public override void Cast() {
 
+        Debug.Log("Summon spell: " + name);
         SummonManager.instance.StartSummon(summon);
 
     }

@@ -60,8 +60,6 @@ public class GameManager : MonoBehaviour {
     }
     private void Update() {
 
-        if (!Player.instance.alive) return;
-
         float dayProgress = (GetDayLength() - (dayEnd - Time.time)) / GetDayLength();
 
         hourHand.transform.rotation = Quaternion.Euler(dayProgress * 2.0f * 360.0f - 90.0f, 90.0f, -90.0f);

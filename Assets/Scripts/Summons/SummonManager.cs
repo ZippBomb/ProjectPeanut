@@ -28,7 +28,7 @@ public class SummonManager : MonoBehaviour {
 
     private void Start() {
         
-        Game.input.Player.Primary.performed += CastSummon;
+        Game.input.Casting.Cast.performed += CastSummon;
 
         preview = Instantiate(previewPrefab, transform);
         preview.SetActive(false);
@@ -51,7 +51,7 @@ public class SummonManager : MonoBehaviour {
 
         preview.transform.position = hit.point;
 
-        float rotDelta = Game.input.Player.Rotate.ReadValue<float>() * rotateSensitivity;
+        float rotDelta = Game.input.Casting.Rotate.ReadValue<float>() * rotateSensitivity;
         preview.transform.Rotate(Vector3.up, rotDelta);
 
     }
@@ -75,11 +75,15 @@ public class SummonManager : MonoBehaviour {
 
         summon = summonPrefab;
 
+        Game.input.Casting.Enable();
+
+        Game.DisableInteractionInput();
+        Game.DisableInventoryInput();
+
     }
 
     private void CastSummon(InputAction.CallbackContext ctx) {
         
-        if (!Player.instance.alive) return;
         if (summon == null) return;
 
         Instantiate(summon, preview.transform.position, preview.transform.rotation);
@@ -89,6 +93,11 @@ public class SummonManager : MonoBehaviour {
         Wall.instance.UpdateUnitsInRange();
 
         summon = null;
+
+        Game.input.Casting.Disable();
+
+        Game.EnableInventoryInput();
+        Game.EnableInteractionInput();
 
     }
 

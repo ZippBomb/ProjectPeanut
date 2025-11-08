@@ -28,8 +28,6 @@ public class PlayerLook : MonoBehaviour {
     }
     private void Update() {
 
-        if (!Player.instance.alive) return;
-
         Vector2 input = inputMap.Look.ReadValue<Vector2>() * sensitivity * 15.0f * Time.deltaTime;
         pitch = Mathf.Clamp(pitch - input.y, -90.0f, 90.0f);
 

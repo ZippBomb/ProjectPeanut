@@ -93,6 +93,8 @@ public class Player : MonoBehaviour {
         
         alive = false;
 
+        Game.input.Disable();
+
         GameManager.instance.GameOver();
 
     }
@@ -245,6 +247,7 @@ public class Player : MonoBehaviour {
         if (!alive) return;
 
         int value = (int) ctx.ReadValue<float>();
+        Debug.Log("Cast spell triggered: " + value);
         if (value >= spells.Count || spells[value] == null) return;
 
         Spell spell = spells[value];

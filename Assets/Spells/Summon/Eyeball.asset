@@ -13,13 +13,13 @@ MonoBehaviour:
   m_Name: Eyeball
   m_EditorClassIdentifier: 
   castLogic:
-    rid: 7911273245469048908
+    rid: 7911273334612164685
   castLogicType: 1
   summon: {fileID: 6454006969326718071, guid: ae45413d9438bf84dadcf551ae90578f, type: 3}
   references:
     version: 2
     RefIds:
-    - rid: 7911273245469048908
+    - rid: 7911273334612164685
       type: {class: CooldownCastLogic, ns: , asm: Assembly-CSharp}
       data:
-        cooldown: 60
+        cooldown: 5

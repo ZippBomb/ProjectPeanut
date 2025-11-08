@@ -1011,7 +1011,7 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 255087065}
     - target: {fileID: 4444462620945935875, guid: f6db0d2226f43bc4c80c1183eab75e34, type: 3}
-      propertyPath: stats.Array.data[1].value
+      propertyPath: stats.Array.data[0].value
       value: 100
       objectReference: {fileID: 0}
     m_RemovedComponents: []

@@ -24,6 +24,15 @@
                     "initialStateCheck": true
                 },
                 {
+                    "name": "Interact",
+                    "type": "Button",
+                    "id": "e7ca972e-7d6a-4efe-baae-482aad0eb45d",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
                     "name": "Use Left Item",
                     "type": "Button",
                     "id": "30b25b5f-3061-4dd9-a811-3c1c3ca02fd4",
@@ -45,42 +54,6 @@
                     "name": "Cast spell",
                     "type": "Value",
                     "id": "5150b600-5e90-4850-82ca-090ed8dd6665",
-                    "expectedControlType": "Axis",
-                    "processors": "",
-                    "interactions": "",
-                    "initialStateCheck": true
-                },
-                {
-                    "name": "Primary",
-                    "type": "Button",
-                    "id": "0405440c-7a4d-4a87-a606-3f35aa9febda",
-                    "expectedControlType": "",
-                    "processors": "",
-                    "interactions": "",
-                    "initialStateCheck": false
-                },
-                {
-                    "name": "Secondary",
-                    "type": "Button",
-                    "id": "0343c729-4a56-4950-a228-bf936d26b050",
-                    "expectedControlType": "",
-                    "processors": "",
-                    "interactions": "",
-                    "initialStateCheck": false
-                },
-                {
-                    "name": "Interact",
-                    "type": "Button",
-                    "id": "e7ca972e-7d6a-4efe-baae-482aad0eb45d",
-                    "expectedControlType": "",
-                    "processors": "",
-                    "interactions": "",
-                    "initialStateCheck": false
-                },
-                {
-                    "name": "Rotate",
-                    "type": "Value",
-                    "id": "a88d5c36-1d55-49f3-909d-bfc88268be51",
                     "expectedControlType": "Axis",
                     "processors": "",
                     "interactions": "",
@@ -269,7 +242,7 @@
                     "id": "d1e8552f-0eee-4270-a61a-f9036c9f1537",
                     "path": "<Keyboard>/2",
                     "interactions": "",
-                    "processors": "",
+                    "processors": "Scale",
                     "groups": ";Keyboard&Mouse",
                     "action": "Cast spell",
                     "isComposite": false,
@@ -365,28 +338,6 @@
                 },
                 {
                     "name": "",
-                    "id": "adcd91ba-5a1b-49ec-9dfa-9a134b35f7ec",
-                    "path": "<Mouse>/leftButton",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": ";Keyboard&Mouse",
-                    "action": "Primary",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "6287afa2-2d9e-4658-9cf7-3ce4ac4c12cb",
-                    "path": "<Mouse>/rightButton",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": ";Keyboard&Mouse",
-                    "action": "Secondary",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
                     "id": "bfa1c8b7-7156-43a6-90b8-fe9b4af6baf9",
                     "path": "<Keyboard>/f",
                     "interactions": "",
@@ -395,10 +346,47 @@
                     "action": "Interact",
                     "isComposite": false,
                     "isPartOfComposite": false
+                }
+            ]
+        },
+        {
+            "name": "Casting",
+            "id": "5bf8f8b1-8101-4538-9369-bd0f521d3701",
+            "actions": [
+                {
+                    "name": "Cast",
+                    "type": "Button",
+                    "id": "05bf1962-8b6a-410f-8eb2-d37b6c093bf0",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "Rotate",
+                    "type": "Value",
+                    "id": "639ec026-9a2c-4d5b-84d8-5ab292979b9e",
+                    "expectedControlType": "Axis",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": true
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "cbe50e7e-d681-4cef-b441-910c7be8b568",
+                    "path": "<Mouse>/leftButton",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": ";Keyboard&Mouse",
+                    "action": "Cast",
+                    "isComposite": false,
+                    "isPartOfComposite": false
                 },
                 {
                     "name": "",
-                    "id": "8aefa65b-da6a-418c-809e-8d5f4bfa24ce",
+                    "id": "a513f4f6-7393-4697-8ff7-3081b34c997a",
                     "path": "<Mouse>/scroll/y",
                     "interactions": "",
                     "processors": "",

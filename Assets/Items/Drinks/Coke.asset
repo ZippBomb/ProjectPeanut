@@ -15,7 +15,7 @@ MonoBehaviour:
   name: Coke
   id: 2
   mesh: {fileID: 6975514203345443482, guid: 22054a727e9509b49adb3b56bd3347bf, type: 3}
-  material: {fileID: -7805965318761107941, guid: 46a229ec43bd96c48a93e5ae518b2054, type: 3}
+  material: {fileID: 2100000, guid: 9d9973f3d962d9843aef12a59eae0c9d, type: 2}
   rotation: {x: -90, y: 0, z: 0}
   satiety: 20
   container: {fileID: 11400000, guid: 98e3e77c7663bcd4b89b3b4d34063a9c, type: 2}

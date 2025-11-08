@@ -10,6 +10,30 @@ public static class Game {
 
     }
 
+    public static void DisableInventoryInput() {
+
+        input.Player.UseLeftItem.Disable();
+        input.Player.UseRightItem.Disable();
+
+    }
+    public static void DisableInteractionInput() {
+
+        input.Player.Interact.Disable();
+
+    }
+
+    public static void EnableInventoryInput() {
+
+        input.Player.UseLeftItem.Enable();
+        input.Player.UseRightItem.Enable();
+
+    }
+    public static void EnableInteractionInput() {
+
+        input.Player.Interact.Enable();
+
+    }
+
     public static void Assert(bool condition, string message) {
 
 #if UNITY_EDITOR

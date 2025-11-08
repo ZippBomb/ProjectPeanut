@@ -15,7 +15,6 @@ public class Oven : Stareable {
 
     private void Interact(InputAction.CallbackContext ctx) {
 
-        if (!Player.instance.alive) return;
         if (!isStaredAt) return;
         
         foreach (Cookable cookable in cookables) {

@@ -110,6 +110,15 @@ public partial class @MainInput: IInputActionCollection2, IDisposable
                     ""initialStateCheck"": true
                 },
                 {
+                    ""name"": ""Interact"",
+                    ""type"": ""Button"",
+                    ""id"": ""e7ca972e-7d6a-4efe-baae-482aad0eb45d"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
                     ""name"": ""Use Left Item"",
                     ""type"": ""Button"",
                     ""id"": ""30b25b5f-3061-4dd9-a811-3c1c3ca02fd4"",
@@ -131,42 +140,6 @@ public partial class @MainInput: IInputActionCollection2, IDisposable
                     ""name"": ""Cast spell"",
                     ""type"": ""Value"",
                     ""id"": ""5150b600-5e90-4850-82ca-090ed8dd6665"",
-                    ""expectedControlType"": ""Axis"",
-                    ""processors"": """",
-                    ""interactions"": """",
-                    ""initialStateCheck"": true
-                },
-                {
-                    ""name"": ""Primary"",
-                    ""type"": ""Button"",
-                    ""id"": ""0405440c-7a4d-4a87-a606-3f35aa9febda"",
-                    ""expectedControlType"": """",
-                    ""processors"": """",
-                    ""interactions"": """",
-                    ""initialStateCheck"": false
-                },
-                {
-                    ""name"": ""Secondary"",
-                    ""type"": ""Button"",
-                    ""id"": ""0343c729-4a56-4950-a228-bf936d26b050"",
-                    ""expectedControlType"": """",
-                    ""processors"": """",
-                    ""interactions"": """",
-                    ""initialStateCheck"": false
-                },
-                {
-                    ""name"": ""Interact"",
-                    ""type"": ""Button"",
-                    ""id"": ""e7ca972e-7d6a-4efe-baae-482aad0eb45d"",
-                    ""expectedControlType"": """",
-                    ""processors"": """",
-                    ""interactions"": """",
-                    ""initialStateCheck"": false
-                },
-                {
-                    ""name"": ""Rotate"",
-                    ""type"": ""Value"",
-                    ""id"": ""a88d5c36-1d55-49f3-909d-bfc88268be51"",
                     ""expectedControlType"": ""Axis"",
                     ""processors"": """",
                     ""interactions"": """",
@@ -355,7 +328,7 @@ public partial class @MainInput: IInputActionCollection2, IDisposable
                     ""id"": ""d1e8552f-0eee-4270-a61a-f9036c9f1537"",
                     ""path"": ""<Keyboard>/2"",
                     ""interactions"": """",
-                    ""processors"": """",
+                    ""processors"": ""Scale"",
                     ""groups"": "";Keyboard&Mouse"",
                     ""action"": ""Cast spell"",
                     ""isComposite"": false,
@@ -451,28 +424,6 @@ public partial class @MainInput: IInputActionCollection2, IDisposable
                 },
                 {
                     ""name"": """",
-                    ""id"": ""adcd91ba-5a1b-49ec-9dfa-9a134b35f7ec"",
-                    ""path"": ""<Mouse>/leftButton"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": "";Keyboard&Mouse"",
-                    ""action"": ""Primary"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""6287afa2-2d9e-4658-9cf7-3ce4ac4c12cb"",
-                    ""path"": ""<Mouse>/rightButton"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": "";Keyboard&Mouse"",
-                    ""action"": ""Secondary"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
                     ""id"": ""bfa1c8b7-7156-43a6-90b8-fe9b4af6baf9"",
                     ""path"": ""<Keyboard>/f"",
                     ""interactions"": """",
@@ -481,10 +432,47 @@ public partial class @MainInput: IInputActionCollection2, IDisposable
                     ""action"": ""Interact"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                }
+            ]
+        },
+        {
+            ""name"": ""Casting"",
+            ""id"": ""5bf8f8b1-8101-4538-9369-bd0f521d3701"",
+            ""actions"": [
+                {
+                    ""name"": ""Cast"",
+                    ""type"": ""Button"",
+                    ""id"": ""05bf1962-8b6a-410f-8eb2-d37b6c093bf0"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Rotate"",
+                    ""type"": ""Value"",
+                    ""id"": ""639ec026-9a2c-4d5b-84d8-5ab292979b9e"",
+                    ""expectedControlType"": ""Axis"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": true
+                }
+            ],
+            ""bindings"": [
+                {
+                    ""name"": """",
+                    ""id"": ""cbe50e7e-d681-4cef-b441-910c7be8b568"",
+                    ""path"": ""<Mouse>/leftButton"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": "";Keyboard&Mouse"",
+                    ""action"": ""Cast"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 },
                 {
                     ""name"": """",
-                    ""id"": ""8aefa65b-da6a-418c-809e-8d5f4bfa24ce"",
+                    ""id"": ""a513f4f6-7393-4697-8ff7-3081b34c997a"",
                     ""path"": ""<Mouse>/scroll/y"",
                     ""interactions"": """",
                     ""processors"": """",
@@ -563,18 +551,20 @@ public partial class @MainInput: IInputActionCollection2, IDisposable
         m_Player = asset.FindActionMap("Player", throwIfNotFound: true);
         m_Player_Move = m_Player.FindAction("Move", throwIfNotFound: true);
         m_Player_Look = m_Player.FindAction("Look", throwIfNotFound: true);
+        m_Player_Interact = m_Player.FindAction("Interact", throwIfNotFound: true);
         m_Player_UseLeftItem = m_Player.FindAction("Use Left Item", throwIfNotFound: true);
         m_Player_UseRightItem = m_Player.FindAction("Use Right Item", throwIfNotFound: true);
         m_Player_Castspell = m_Player.FindAction("Cast spell", throwIfNotFound: true);
-        m_Player_Primary = m_Player.FindAction("Primary", throwIfNotFound: true);
-        m_Player_Secondary = m_Player.FindAction("Secondary", throwIfNotFound: true);
-        m_Player_Interact = m_Player.FindAction("Interact", throwIfNotFound: true);
-        m_Player_Rotate = m_Player.FindAction("Rotate", throwIfNotFound: true);
+        // Casting
+        m_Casting = asset.FindActionMap("Casting", throwIfNotFound: true);
+        m_Casting_Cast = m_Casting.FindAction("Cast", throwIfNotFound: true);
+        m_Casting_Rotate = m_Casting.FindAction("Rotate", throwIfNotFound: true);
     }
 
     ~@MainInput()
     {
         UnityEngine.Debug.Assert(!m_Player.enabled, "This will cause a leak and performance issues, MainInput.Player.Disable() has not been called.");
+        UnityEngine.Debug.Assert(!m_Casting.enabled, "This will cause a leak and performance issues, MainInput.Casting.Disable() has not been called.");
     }
 
     /// <summary>
@@ -652,13 +642,10 @@ public partial class @MainInput: IInputActionCollection2, IDisposable
     private List<IPlayerActions> m_PlayerActionsCallbackInterfaces = new List<IPlayerActions>();
     private readonly InputAction m_Player_Move;
     private readonly InputAction m_Player_Look;
+    private readonly InputAction m_Player_Interact;
     private readonly InputAction m_Player_UseLeftItem;
     private readonly InputAction m_Player_UseRightItem;
     private readonly InputAction m_Player_Castspell;
-    private readonly InputAction m_Player_Primary;
-    private readonly InputAction m_Player_Secondary;
-    private readonly InputAction m_Player_Interact;
-    private readonly InputAction m_Player_Rotate;
     /// <summary>
     /// Provides access to input actions defined in input action map "Player".
     /// </summary>
@@ -679,6 +666,10 @@ public partial class @MainInput: IInputActionCollection2, IDisposable
         /// </summary>
         public InputAction @Look => m_Wrapper.m_Player_Look;
         /// <summary>
+        /// Provides access to the underlying input action "Player/Interact".
+        /// </summary>
+        public InputAction @Interact => m_Wrapper.m_Player_Interact;
+        /// <summary>
         /// Provides access to the underlying input action "Player/UseLeftItem".
         /// </summary>
         public InputAction @UseLeftItem => m_Wrapper.m_Player_UseLeftItem;
@@ -690,22 +681,6 @@ public partial class @MainInput: IInputActionCollection2, IDisposable
         /// Provides access to the underlying input action "Player/Castspell".
         /// </summary>
         public InputAction @Castspell => m_Wrapper.m_Player_Castspell;
-        /// <summary>
-        /// Provides access to the underlying input action "Player/Primary".
-        /// </summary>
-        public InputAction @Primary => m_Wrapper.m_Player_Primary;
-        /// <summary>
-        /// Provides access to the underlying input action "Player/Secondary".
-        /// </summary>
-        public InputAction @Secondary => m_Wrapper.m_Player_Secondary;
-        /// <summary>
-        /// Provides access to the underlying input action "Player/Interact".
-        /// </summary>
-        public InputAction @Interact => m_Wrapper.m_Player_Interact;
-        /// <summary>
-        /// Provides access to the underlying input action "Player/Rotate".
-        /// </summary>
-        public InputAction @Rotate => m_Wrapper.m_Player_Rotate;
         /// <summary>
         /// Provides access to the underlying input action map instance.
         /// </summary>
@@ -738,6 +713,9 @@ public partial class @MainInput: IInputActionCollection2, IDisposable
             @Look.started += instance.OnLook;
             @Look.performed += instance.OnLook;
             @Look.canceled += instance.OnLook;
+            @Interact.started += instance.OnInteract;
+            @Interact.performed += instance.OnInteract;
+            @Interact.canceled += instance.OnInteract;
             @UseLeftItem.started += instance.OnUseLeftItem;
             @UseLeftItem.performed += instance.OnUseLeftItem;
             @UseLeftItem.canceled += instance.OnUseLeftItem;
@@ -747,18 +725,6 @@ public partial class @MainInput: IInputActionCollection2, IDisposable
             @Castspell.started += instance.OnCastspell;
             @Castspell.performed += instance.OnCastspell;
             @Castspell.canceled += instance.OnCastspell;
-            @Primary.started += instance.OnPrimary;
-            @Primary.performed += instance.OnPrimary;
-            @Primary.canceled += instance.OnPrimary;
-            @Secondary.started += instance.OnSecondary;
-            @Secondary.performed += instance.OnSecondary;
-            @Secondary.canceled += instance.OnSecondary;
-            @Interact.started += instance.OnInteract;
-            @Interact.performed += instance.OnInteract;
-            @Interact.canceled += instance.OnInteract;
-            @Rotate.started += instance.OnRotate;
-            @Rotate.performed += instance.OnRotate;
-            @Rotate.canceled += instance.OnRotate;
         }
 
         /// <summary>
@@ -776,6 +742,9 @@ public partial class @MainInput: IInputActionCollection2, IDisposable
             @Look.started -= instance.OnLook;
             @Look.performed -= instance.OnLook;
             @Look.canceled -= instance.OnLook;
+            @Interact.started -= instance.OnInteract;
+            @Interact.performed -= instance.OnInteract;
+            @Interact.canceled -= instance.OnInteract;
             @UseLeftItem.started -= instance.OnUseLeftItem;
             @UseLeftItem.performed -= instance.OnUseLeftItem;
             @UseLeftItem.canceled -= instance.OnUseLeftItem;
@@ -785,18 +754,6 @@ public partial class @MainInput: IInputActionCollection2, IDisposable
             @Castspell.started -= instance.OnCastspell;
             @Castspell.performed -= instance.OnCastspell;
             @Castspell.canceled -= instance.OnCastspell;
-            @Primary.started -= instance.OnPrimary;
-            @Primary.performed -= instance.OnPrimary;
-            @Primary.canceled -= instance.OnPrimary;
-            @Secondary.started -= instance.OnSecondary;
-            @Secondary.performed -= instance.OnSecondary;
-            @Secondary.canceled -= instance.OnSecondary;
-            @Interact.started -= instance.OnInteract;
-            @Interact.performed -= instance.OnInteract;
-            @Interact.canceled -= instance.OnInteract;
-            @Rotate.started -= instance.OnRotate;
-            @Rotate.performed -= instance.OnRotate;
-            @Rotate.canceled -= instance.OnRotate;
         }
 
         /// <summary>
@@ -830,6 +787,113 @@ public partial class @MainInput: IInputActionCollection2, IDisposable
     /// Provides a new <see cref="PlayerActions" /> instance referencing this action map.
     /// </summary>
     public PlayerActions @Player => new PlayerActions(this);
+
+    // Casting
+    private readonly InputActionMap m_Casting;
+    private List<ICastingActions> m_CastingActionsCallbackInterfaces = new List<ICastingActions>();
+    private readonly InputAction m_Casting_Cast;
+    private readonly InputAction m_Casting_Rotate;
+    /// <summary>
+    /// Provides access to input actions defined in input action map "Casting".
+    /// </summary>
+    public struct CastingActions
+    {
+        private @MainInput m_Wrapper;
+
+        /// <summary>
+        /// Construct a new instance of the input action map wrapper class.
+        /// </summary>
+        public CastingActions(@MainInput wrapper) { m_Wrapper = wrapper; }
+        /// <summary>
+        /// Provides access to the underlying input action "Casting/Cast".
+        /// </summary>
+        public InputAction @Cast => m_Wrapper.m_Casting_Cast;
+        /// <summary>
+        /// Provides access to the underlying input action "Casting/Rotate".
+        /// </summary>
+        public InputAction @Rotate => m_Wrapper.m_Casting_Rotate;
+        /// <summary>
+        /// Provides access to the underlying input action map instance.
+        /// </summary>
+        public InputActionMap Get() { return m_Wrapper.m_Casting; }
+        /// <inheritdoc cref="UnityEngine.InputSystem.InputActionMap.Enable()" />
+        public void Enable() { Get().Enable(); }
+        /// <inheritdoc cref="UnityEngine.InputSystem.InputActionMap.Disable()" />
+        public void Disable() { Get().Disable(); }
+        /// <inheritdoc cref="UnityEngine.InputSystem.InputActionMap.enabled" />
+        public bool enabled => Get().enabled;
+        /// <summary>
+        /// Implicitly converts an <see ref="CastingActions" /> to an <see ref="InputActionMap" /> instance.
+        /// </summary>
+        public static implicit operator InputActionMap(CastingActions set) { return set.Get(); }
+        /// <summary>
+        /// Adds <see cref="InputAction.started"/>, <see cref="InputAction.performed"/> and <see cref="InputAction.canceled"/> callbacks provided via <param cref="instance" /> on all input actions contained in this map.
+        /// </summary>
+        /// <param name="instance">Callback instance.</param>
+        /// <remarks>
+        /// If <paramref name="instance" /> is <c>null</c> or <paramref name="instance"/> have already been added this method does nothing.
+        /// </remarks>
+        /// <seealso cref="CastingActions" />
+        public void AddCallbacks(ICastingActions instance)
+        {
+            if (instance == null || m_Wrapper.m_CastingActionsCallbackInterfaces.Contains(instance)) return;
+            m_Wrapper.m_CastingActionsCallbackInterfaces.Add(instance);
+            @Cast.started += instance.OnCast;
+            @Cast.performed += instance.OnCast;
+            @Cast.canceled += instance.OnCast;
+            @Rotate.started += instance.OnRotate;
+            @Rotate.performed += instance.OnRotate;
+            @Rotate.canceled += instance.OnRotate;
+        }
+
+        /// <summary>
+        /// Removes <see cref="InputAction.started"/>, <see cref="InputAction.performed"/> and <see cref="InputAction.canceled"/> callbacks provided via <param cref="instance" /> on all input actions contained in this map.
+        /// </summary>
+        /// <remarks>
+        /// Calling this method when <paramref name="instance" /> have not previously been registered has no side-effects.
+        /// </remarks>
+        /// <seealso cref="CastingActions" />
+        private void UnregisterCallbacks(ICastingActions instance)
+        {
+            @Cast.started -= instance.OnCast;
+            @Cast.performed -= instance.OnCast;
+            @Cast.canceled -= instance.OnCast;
+            @Rotate.started -= instance.OnRotate;
+            @Rotate.performed -= instance.OnRotate;
+            @Rotate.canceled -= instance.OnRotate;
+        }
+
+        /// <summary>
+        /// Unregisters <param cref="instance" /> and unregisters all input action callbacks via <see cref="CastingActions.UnregisterCallbacks(ICastingActions)" />.
+        /// </summary>
+        /// <seealso cref="CastingActions.UnregisterCallbacks(ICastingActions)" />
+        public void RemoveCallbacks(ICastingActions instance)
+        {
+            if (m_Wrapper.m_CastingActionsCallbackInterfaces.Remove(instance))
+                UnregisterCallbacks(instance);
+        }
+
+        /// <summary>
+        /// Replaces all existing callback instances and previously registered input action callbacks associated with them with callbacks provided via <param cref="instance" />.
+        /// </summary>
+        /// <remarks>
+        /// If <paramref name="instance" /> is <c>null</c>, calling this method will only unregister all existing callbacks but not register any new callbacks.
+        /// </remarks>
+        /// <seealso cref="CastingActions.AddCallbacks(ICastingActions)" />
+        /// <seealso cref="CastingActions.RemoveCallbacks(ICastingActions)" />
+        /// <seealso cref="CastingActions.UnregisterCallbacks(ICastingActions)" />
+        public void SetCallbacks(ICastingActions instance)
+        {
+            foreach (var item in m_Wrapper.m_CastingActionsCallbackInterfaces)
+                UnregisterCallbacks(item);
+            m_Wrapper.m_CastingActionsCallbackInterfaces.Clear();
+            AddCallbacks(instance);
+        }
+    }
+    /// <summary>
+    /// Provides a new <see cref="CastingActions" /> instance referencing this action map.
+    /// </summary>
+    public CastingActions @Casting => new CastingActions(this);
     private int m_KeyboardMouseSchemeIndex = -1;
     /// <summary>
     /// Provides access to the input control scheme.
@@ -917,6 +981,13 @@ public partial class @MainInput: IInputActionCollection2, IDisposable
         /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
         void OnLook(InputAction.CallbackContext context);
         /// <summary>
+        /// Method invoked when associated input action "Interact" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+        /// </summary>
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
+        void OnInteract(InputAction.CallbackContext context);
+        /// <summary>
         /// Method invoked when associated input action "Use Left Item" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
         /// </summary>
         /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
@@ -937,27 +1008,21 @@ public partial class @MainInput: IInputActionCollection2, IDisposable
         /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
         /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
         void OnCastspell(InputAction.CallbackContext context);
+    }
+    /// <summary>
+    /// Interface to implement callback methods for all input action callbacks associated with input actions defined by "Casting" which allows adding and removing callbacks.
+    /// </summary>
+    /// <seealso cref="CastingActions.AddCallbacks(ICastingActions)" />
+    /// <seealso cref="CastingActions.RemoveCallbacks(ICastingActions)" />
+    public interface ICastingActions
+    {
         /// <summary>
-        /// Method invoked when associated input action "Primary" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+        /// Method invoked when associated input action "Cast" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
         /// </summary>
         /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
         /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
         /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
-        void OnPrimary(InputAction.CallbackContext context);
-        /// <summary>
-        /// Method invoked when associated input action "Secondary" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
-        /// </summary>
-        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
-        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
-        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
-        void OnSecondary(InputAction.CallbackContext context);
-        /// <summary>
-        /// Method invoked when associated input action "Interact" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
-        /// </summary>
-        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
-        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
-        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
-        void OnInteract(InputAction.CallbackContext context);
+        void OnCast(InputAction.CallbackContext context);
         /// <summary>
         /// Method invoked when associated input action "Rotate" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
         /// </summary>
