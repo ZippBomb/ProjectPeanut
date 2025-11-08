@@ -19,6 +19,8 @@ public class PlayerLook : MonoBehaviour {
 
     private void Start() {
 
+        if (Game.inMainMenu) return;
+
         inputMap = Player.instance.input;
         pitch = camera.localEulerAngles.x;
 

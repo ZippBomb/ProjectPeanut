@@ -41,6 +41,8 @@ public class Player : MonoBehaviour {
 
     private void Start() {
 
+        if (Game.inMainMenu) return;
+
         Game.Assert(leftItemPreview != null, "No Left item preview assigned to Player.");
         Game.Assert(rightItemPreview != null, "No Right item preview assigned to Player.");
 
@@ -80,6 +82,7 @@ public class Player : MonoBehaviour {
 
     private void OnEnable() {
 
+        if (Game.inMainMenu) return;
         input.Enable();
 
     }
@@ -247,7 +250,6 @@ public class Player : MonoBehaviour {
         if (!alive) return;
 
         int value = (int) ctx.ReadValue<float>();
-        Debug.Log("Cast spell triggered: " + value);
         if (value >= spells.Count || spells[value] == null) return;
 
         Spell spell = spells[value];

@@ -2,6 +2,8 @@ using UnityEngine;
 
 public static class Game {
 
+    public static bool inMainMenu = true;
+
     public static MainInput input;
 
     public static void Start() {

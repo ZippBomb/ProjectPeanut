@@ -15,6 +15,10 @@ public class GameManager : MonoBehaviour {
 
     [SerializeField] private int apartmentSceneIndex = 1;
 
+    [Header("Main Menu")]
+    [SerializeField] private GameObject mainMenu;
+    [SerializeField] private GameObject mainMenuCamera;
+
     [Header("Days")]
     // How long should each day last in minutes.
     [SerializeField] private float dayLength = 1;
@@ -55,6 +59,9 @@ public class GameManager : MonoBehaviour {
         Game.Assert(player != null, "Player was not assigned to GameManager!");
         Game.Assert(wall != null, "Wall was not assigned to GameManager!");
 
+        if (Game.inMainMenu)
+            StartMainMenu();
+
         dayEnd = Time.time + GetDayLength();
 
     }
@@ -76,6 +83,19 @@ public class GameManager : MonoBehaviour {
 
     }
 
+    private void StartMainMenu() {
+
+        Game.input.Disable();
+        Time.timeScale = 0.5f;
+
+        mainMenu.SetActive(true);
+        mainMenuCamera.SetActive(true);
+
+        Player.instance.alive = false;
+        Player.instance.gameObject.SetActive(false);
+
+    }
+
     public void GameOver() {
         
         gameOverScreen.SetActive(true);
@@ -87,6 +107,14 @@ public class GameManager : MonoBehaviour {
 
     }
 
+    public void StartGame() {
+
+        Game.inMainMenu = false;
+
+        SceneManager.LoadScene(apartmentSceneIndex);
+        Time.timeScale = 1.0f;
+
+    }
     public void Restart() {
         
         Debug.Log("Restarting game.");

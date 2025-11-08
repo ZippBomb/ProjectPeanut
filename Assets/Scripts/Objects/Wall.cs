@@ -124,6 +124,7 @@ public class Wall : Stareable {
     private void ConstantPlayerDamage(float scale) {
 
         if (isStaredAt) return;
+        if (!Player.instance.alive) return;
         
         playerHealth.Damage(baseDamage * scale * Time.deltaTime);
 
