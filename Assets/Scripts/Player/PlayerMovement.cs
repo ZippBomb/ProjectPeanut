@@ -19,7 +19,7 @@ public class PlayerMovement : MonoBehaviour {
 
     private void Start() {
 
-        inputMap = Player.instance.input;
+        inputMap = Game.input.Player;
 
         rb = GetComponent<Rigidbody>();
         Game.Assert(rb != null, "No RigidBody on object '" + gameObject.name + "' required by PlayerMovement");

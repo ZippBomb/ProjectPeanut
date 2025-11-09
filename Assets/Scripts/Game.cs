@@ -9,13 +9,17 @@ public static class Game {
     public static void Start() {
 
         input = new MainInput();
+        if (!inMainMenu) {
+
+            input.Enable();
+
+        }
 
     }
 
     public static void DisableInventoryInput() {
 
-        input.Player.UseLeftItem.Disable();
-        input.Player.UseRightItem.Disable();
+        input.Items.Disable();
 
     }
     public static void DisableInteractionInput() {
@@ -26,8 +30,7 @@ public static class Game {
 
     public static void EnableInventoryInput() {
 
-        input.Player.UseLeftItem.Enable();
-        input.Player.UseRightItem.Enable();
+        input.Items.Enable();
 
     }
     public static void EnableInteractionInput() {

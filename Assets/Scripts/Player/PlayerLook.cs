@@ -21,7 +21,7 @@ public class PlayerLook : MonoBehaviour {
 
         if (Game.inMainMenu) return;
 
-        inputMap = Player.instance.input;
+        inputMap = Game.input.Player;
         pitch = camera.localEulerAngles.x;
 
         Cursor.lockState = CursorLockMode.Locked;

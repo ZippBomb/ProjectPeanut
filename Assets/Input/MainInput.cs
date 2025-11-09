@@ -119,24 +119,6 @@ public partial class @MainInput: IInputActionCollection2, IDisposable
                     ""initialStateCheck"": false
                 },
                 {
-                    ""name"": ""Use Left Item"",
-                    ""type"": ""Button"",
-                    ""id"": ""30b25b5f-3061-4dd9-a811-3c1c3ca02fd4"",
-                    ""expectedControlType"": """",
-                    ""processors"": """",
-                    ""interactions"": """",
-                    ""initialStateCheck"": false
-                },
-                {
-                    ""name"": ""Use Right Item"",
-                    ""type"": ""Button"",
-                    ""id"": ""ad843135-45b4-4a0a-8755-9886bc12c6e0"",
-                    ""expectedControlType"": """",
-                    ""processors"": """",
-                    ""interactions"": """",
-                    ""initialStateCheck"": false
-                },
-                {
                     ""name"": ""Cast spell"",
                     ""type"": ""Value"",
                     ""id"": ""5150b600-5e90-4850-82ca-090ed8dd6665"",
@@ -270,50 +252,6 @@ public partial class @MainInput: IInputActionCollection2, IDisposable
                 },
                 {
                     ""name"": """",
-                    ""id"": ""fd9b0ee3-c567-4f42-8bd9-9a56b460af7a"",
-                    ""path"": ""<Keyboard>/e"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": "";Keyboard&Mouse"",
-                    ""action"": ""Use Right Item"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""c261672f-1bbc-415a-beab-997adf6156f4"",
-                    ""path"": ""<Gamepad>/buttonNorth"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": "";Gamepad"",
-                    ""action"": ""Use Right Item"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""8970b31d-9ad1-4781-b281-db021d64d0a2"",
-                    ""path"": ""<Keyboard>/q"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": "";Keyboard&Mouse"",
-                    ""action"": ""Use Left Item"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""9bef321c-a8dc-4a26-a335-0110a9d8b15c"",
-                    ""path"": ""<Gamepad>/buttonSouth"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": "";Gamepad"",
-                    ""action"": ""Use Left Item"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
                     ""id"": ""3452efe4-3e7d-4f42-b267-16b682d147f9"",
                     ""path"": ""<Keyboard>/1"",
                     ""interactions"": """",
@@ -436,6 +374,116 @@ public partial class @MainInput: IInputActionCollection2, IDisposable
             ]
         },
         {
+            ""name"": ""Items"",
+            ""id"": ""3a0ba88d-a64a-4e68-8be8-558800ba963c"",
+            ""actions"": [
+                {
+                    ""name"": ""Use Left Item"",
+                    ""type"": ""Button"",
+                    ""id"": ""5aef1ee0-c9a6-4c1b-96e5-5cdec3db64a5"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Use Right Item"",
+                    ""type"": ""Button"",
+                    ""id"": ""33051c82-4294-47a1-bf40-7930bede8743"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Drop Right Item"",
+                    ""type"": ""Button"",
+                    ""id"": ""40b0964f-3904-4b74-8bbb-55038637c31b"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Drop Left Item"",
+                    ""type"": ""Button"",
+                    ""id"": ""484cb7a7-b579-4cd4-b1d8-fe4f53aaef37"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                }
+            ],
+            ""bindings"": [
+                {
+                    ""name"": """",
+                    ""id"": ""fc44b264-92e9-4546-80df-3ae92c4334c7"",
+                    ""path"": ""<Keyboard>/q"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": "";Keyboard&Mouse"",
+                    ""action"": ""Use Left Item"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""ce61ddc2-4e93-4fb3-9434-8d2de04aa1fb"",
+                    ""path"": ""<Gamepad>/buttonSouth"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": "";Gamepad"",
+                    ""action"": ""Use Left Item"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""daa35e6b-08ec-44f1-9da0-f26b6c1ed6e5"",
+                    ""path"": ""<Keyboard>/e"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": "";Keyboard&Mouse"",
+                    ""action"": ""Use Right Item"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""d0c333c1-04e4-44cb-8351-77c3acef8616"",
+                    ""path"": ""<Gamepad>/buttonNorth"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": "";Gamepad"",
+                    ""action"": ""Use Right Item"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""63b3dc80-ef11-42c9-9372-0662910209f9"",
+                    ""path"": ""<Mouse>/rightButton"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": "";Keyboard&Mouse"",
+                    ""action"": ""Drop Right Item"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""84de827e-b8db-45c0-b7dd-910af7588a50"",
+                    ""path"": ""<Mouse>/leftButton"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": "";Keyboard&Mouse"",
+                    ""action"": ""Drop Left Item"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                }
+            ]
+        },
+        {
             ""name"": ""Casting"",
             ""id"": ""5bf8f8b1-8101-4538-9369-bd0f521d3701"",
             ""actions"": [
@@ -552,9 +600,13 @@ public partial class @MainInput: IInputActionCollection2, IDisposable
         m_Player_Move = m_Player.FindAction("Move", throwIfNotFound: true);
         m_Player_Look = m_Player.FindAction("Look", throwIfNotFound: true);
         m_Player_Interact = m_Player.FindAction("Interact", throwIfNotFound: true);
-        m_Player_UseLeftItem = m_Player.FindAction("Use Left Item", throwIfNotFound: true);
-        m_Player_UseRightItem = m_Player.FindAction("Use Right Item", throwIfNotFound: true);
         m_Player_Castspell = m_Player.FindAction("Cast spell", throwIfNotFound: true);
+        // Items
+        m_Items = asset.FindActionMap("Items", throwIfNotFound: true);
+        m_Items_UseLeftItem = m_Items.FindAction("Use Left Item", throwIfNotFound: true);
+        m_Items_UseRightItem = m_Items.FindAction("Use Right Item", throwIfNotFound: true);
+        m_Items_DropRightItem = m_Items.FindAction("Drop Right Item", throwIfNotFound: true);
+        m_Items_DropLeftItem = m_Items.FindAction("Drop Left Item", throwIfNotFound: true);
         // Casting
         m_Casting = asset.FindActionMap("Casting", throwIfNotFound: true);
         m_Casting_Cast = m_Casting.FindAction("Cast", throwIfNotFound: true);
@@ -564,6 +616,7 @@ public partial class @MainInput: IInputActionCollection2, IDisposable
     ~@MainInput()
     {
         UnityEngine.Debug.Assert(!m_Player.enabled, "This will cause a leak and performance issues, MainInput.Player.Disable() has not been called.");
+        UnityEngine.Debug.Assert(!m_Items.enabled, "This will cause a leak and performance issues, MainInput.Items.Disable() has not been called.");
         UnityEngine.Debug.Assert(!m_Casting.enabled, "This will cause a leak and performance issues, MainInput.Casting.Disable() has not been called.");
     }
 
@@ -643,8 +696,6 @@ public partial class @MainInput: IInputActionCollection2, IDisposable
     private readonly InputAction m_Player_Move;
     private readonly InputAction m_Player_Look;
     private readonly InputAction m_Player_Interact;
-    private readonly InputAction m_Player_UseLeftItem;
-    private readonly InputAction m_Player_UseRightItem;
     private readonly InputAction m_Player_Castspell;
     /// <summary>
     /// Provides access to input actions defined in input action map "Player".
@@ -669,14 +720,6 @@ public partial class @MainInput: IInputActionCollection2, IDisposable
         /// Provides access to the underlying input action "Player/Interact".
         /// </summary>
         public InputAction @Interact => m_Wrapper.m_Player_Interact;
-        /// <summary>
-        /// Provides access to the underlying input action "Player/UseLeftItem".
-        /// </summary>
-        public InputAction @UseLeftItem => m_Wrapper.m_Player_UseLeftItem;
-        /// <summary>
-        /// Provides access to the underlying input action "Player/UseRightItem".
-        /// </summary>
-        public InputAction @UseRightItem => m_Wrapper.m_Player_UseRightItem;
         /// <summary>
         /// Provides access to the underlying input action "Player/Castspell".
         /// </summary>
@@ -716,12 +759,6 @@ public partial class @MainInput: IInputActionCollection2, IDisposable
             @Interact.started += instance.OnInteract;
             @Interact.performed += instance.OnInteract;
             @Interact.canceled += instance.OnInteract;
-            @UseLeftItem.started += instance.OnUseLeftItem;
-            @UseLeftItem.performed += instance.OnUseLeftItem;
-            @UseLeftItem.canceled += instance.OnUseLeftItem;
-            @UseRightItem.started += instance.OnUseRightItem;
-            @UseRightItem.performed += instance.OnUseRightItem;
-            @UseRightItem.canceled += instance.OnUseRightItem;
             @Castspell.started += instance.OnCastspell;
             @Castspell.performed += instance.OnCastspell;
             @Castspell.canceled += instance.OnCastspell;
@@ -745,12 +782,6 @@ public partial class @MainInput: IInputActionCollection2, IDisposable
             @Interact.started -= instance.OnInteract;
             @Interact.performed -= instance.OnInteract;
             @Interact.canceled -= instance.OnInteract;
-            @UseLeftItem.started -= instance.OnUseLeftItem;
-            @UseLeftItem.performed -= instance.OnUseLeftItem;
-            @UseLeftItem.canceled -= instance.OnUseLeftItem;
-            @UseRightItem.started -= instance.OnUseRightItem;
-            @UseRightItem.performed -= instance.OnUseRightItem;
-            @UseRightItem.canceled -= instance.OnUseRightItem;
             @Castspell.started -= instance.OnCastspell;
             @Castspell.performed -= instance.OnCastspell;
             @Castspell.canceled -= instance.OnCastspell;
@@ -787,6 +818,135 @@ public partial class @MainInput: IInputActionCollection2, IDisposable
     /// Provides a new <see cref="PlayerActions" /> instance referencing this action map.
     /// </summary>
     public PlayerActions @Player => new PlayerActions(this);
+
+    // Items
+    private readonly InputActionMap m_Items;
+    private List<IItemsActions> m_ItemsActionsCallbackInterfaces = new List<IItemsActions>();
+    private readonly InputAction m_Items_UseLeftItem;
+    private readonly InputAction m_Items_UseRightItem;
+    private readonly InputAction m_Items_DropRightItem;
+    private readonly InputAction m_Items_DropLeftItem;
+    /// <summary>
+    /// Provides access to input actions defined in input action map "Items".
+    /// </summary>
+    public struct ItemsActions
+    {
+        private @MainInput m_Wrapper;
+
+        /// <summary>
+        /// Construct a new instance of the input action map wrapper class.
+        /// </summary>
+        public ItemsActions(@MainInput wrapper) { m_Wrapper = wrapper; }
+        /// <summary>
+        /// Provides access to the underlying input action "Items/UseLeftItem".
+        /// </summary>
+        public InputAction @UseLeftItem => m_Wrapper.m_Items_UseLeftItem;
+        /// <summary>
+        /// Provides access to the underlying input action "Items/UseRightItem".
+        /// </summary>
+        public InputAction @UseRightItem => m_Wrapper.m_Items_UseRightItem;
+        /// <summary>
+        /// Provides access to the underlying input action "Items/DropRightItem".
+        /// </summary>
+        public InputAction @DropRightItem => m_Wrapper.m_Items_DropRightItem;
+        /// <summary>
+        /// Provides access to the underlying input action "Items/DropLeftItem".
+        /// </summary>
+        public InputAction @DropLeftItem => m_Wrapper.m_Items_DropLeftItem;
+        /// <summary>
+        /// Provides access to the underlying input action map instance.
+        /// </summary>
+        public InputActionMap Get() { return m_Wrapper.m_Items; }
+        /// <inheritdoc cref="UnityEngine.InputSystem.InputActionMap.Enable()" />
+        public void Enable() { Get().Enable(); }
+        /// <inheritdoc cref="UnityEngine.InputSystem.InputActionMap.Disable()" />
+        public void Disable() { Get().Disable(); }
+        /// <inheritdoc cref="UnityEngine.InputSystem.InputActionMap.enabled" />
+        public bool enabled => Get().enabled;
+        /// <summary>
+        /// Implicitly converts an <see ref="ItemsActions" /> to an <see ref="InputActionMap" /> instance.
+        /// </summary>
+        public static implicit operator InputActionMap(ItemsActions set) { return set.Get(); }
+        /// <summary>
+        /// Adds <see cref="InputAction.started"/>, <see cref="InputAction.performed"/> and <see cref="InputAction.canceled"/> callbacks provided via <param cref="instance" /> on all input actions contained in this map.
+        /// </summary>
+        /// <param name="instance">Callback instance.</param>
+        /// <remarks>
+        /// If <paramref name="instance" /> is <c>null</c> or <paramref name="instance"/> have already been added this method does nothing.
+        /// </remarks>
+        /// <seealso cref="ItemsActions" />
+        public void AddCallbacks(IItemsActions instance)
+        {
+            if (instance == null || m_Wrapper.m_ItemsActionsCallbackInterfaces.Contains(instance)) return;
+            m_Wrapper.m_ItemsActionsCallbackInterfaces.Add(instance);
+            @UseLeftItem.started += instance.OnUseLeftItem;
+            @UseLeftItem.performed += instance.OnUseLeftItem;
+            @UseLeftItem.canceled += instance.OnUseLeftItem;
+            @UseRightItem.started += instance.OnUseRightItem;
+            @UseRightItem.performed += instance.OnUseRightItem;
+            @UseRightItem.canceled += instance.OnUseRightItem;
+            @DropRightItem.started += instance.OnDropRightItem;
+            @DropRightItem.performed += instance.OnDropRightItem;
+            @DropRightItem.canceled += instance.OnDropRightItem;
+            @DropLeftItem.started += instance.OnDropLeftItem;
+            @DropLeftItem.performed += instance.OnDropLeftItem;
+            @DropLeftItem.canceled += instance.OnDropLeftItem;
+        }
+
+        /// <summary>
+        /// Removes <see cref="InputAction.started"/>, <see cref="InputAction.performed"/> and <see cref="InputAction.canceled"/> callbacks provided via <param cref="instance" /> on all input actions contained in this map.
+        /// </summary>
+        /// <remarks>
+        /// Calling this method when <paramref name="instance" /> have not previously been registered has no side-effects.
+        /// </remarks>
+        /// <seealso cref="ItemsActions" />
+        private void UnregisterCallbacks(IItemsActions instance)
+        {
+            @UseLeftItem.started -= instance.OnUseLeftItem;
+            @UseLeftItem.performed -= instance.OnUseLeftItem;
+            @UseLeftItem.canceled -= instance.OnUseLeftItem;
+            @UseRightItem.started -= instance.OnUseRightItem;
+            @UseRightItem.performed -= instance.OnUseRightItem;
+            @UseRightItem.canceled -= instance.OnUseRightItem;
+            @DropRightItem.started -= instance.OnDropRightItem;
+            @DropRightItem.performed -= instance.OnDropRightItem;
+            @DropRightItem.canceled -= instance.OnDropRightItem;
+            @DropLeftItem.started -= instance.OnDropLeftItem;
+            @DropLeftItem.performed -= instance.OnDropLeftItem;
+            @DropLeftItem.canceled -= instance.OnDropLeftItem;
+        }
+
+        /// <summary>
+        /// Unregisters <param cref="instance" /> and unregisters all input action callbacks via <see cref="ItemsActions.UnregisterCallbacks(IItemsActions)" />.
+        /// </summary>
+        /// <seealso cref="ItemsActions.UnregisterCallbacks(IItemsActions)" />
+        public void RemoveCallbacks(IItemsActions instance)
+        {
+            if (m_Wrapper.m_ItemsActionsCallbackInterfaces.Remove(instance))
+                UnregisterCallbacks(instance);
+        }
+
+        /// <summary>
+        /// Replaces all existing callback instances and previously registered input action callbacks associated with them with callbacks provided via <param cref="instance" />.
+        /// </summary>
+        /// <remarks>
+        /// If <paramref name="instance" /> is <c>null</c>, calling this method will only unregister all existing callbacks but not register any new callbacks.
+        /// </remarks>
+        /// <seealso cref="ItemsActions.AddCallbacks(IItemsActions)" />
+        /// <seealso cref="ItemsActions.RemoveCallbacks(IItemsActions)" />
+        /// <seealso cref="ItemsActions.UnregisterCallbacks(IItemsActions)" />
+        public void SetCallbacks(IItemsActions instance)
+        {
+            foreach (var item in m_Wrapper.m_ItemsActionsCallbackInterfaces)
+                UnregisterCallbacks(item);
+            m_Wrapper.m_ItemsActionsCallbackInterfaces.Clear();
+            AddCallbacks(instance);
+        }
+    }
+    /// <summary>
+    /// Provides a new <see cref="ItemsActions" /> instance referencing this action map.
+    /// </summary>
+    public ItemsActions @Items => new ItemsActions(this);
 
     // Casting
     private readonly InputActionMap m_Casting;
@@ -988,6 +1148,21 @@ public partial class @MainInput: IInputActionCollection2, IDisposable
         /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
         void OnInteract(InputAction.CallbackContext context);
         /// <summary>
+        /// Method invoked when associated input action "Cast spell" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+        /// </summary>
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
+        void OnCastspell(InputAction.CallbackContext context);
+    }
+    /// <summary>
+    /// Interface to implement callback methods for all input action callbacks associated with input actions defined by "Items" which allows adding and removing callbacks.
+    /// </summary>
+    /// <seealso cref="ItemsActions.AddCallbacks(IItemsActions)" />
+    /// <seealso cref="ItemsActions.RemoveCallbacks(IItemsActions)" />
+    public interface IItemsActions
+    {
+        /// <summary>
         /// Method invoked when associated input action "Use Left Item" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
         /// </summary>
         /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
@@ -1002,12 +1177,19 @@ public partial class @MainInput: IInputActionCollection2, IDisposable
         /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
         void OnUseRightItem(InputAction.CallbackContext context);
         /// <summary>
-        /// Method invoked when associated input action "Cast spell" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+        /// Method invoked when associated input action "Drop Right Item" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
         /// </summary>
         /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
         /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
         /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
-        void OnCastspell(InputAction.CallbackContext context);
+        void OnDropRightItem(InputAction.CallbackContext context);
+        /// <summary>
+        /// Method invoked when associated input action "Drop Left Item" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+        /// </summary>
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
+        void OnDropLeftItem(InputAction.CallbackContext context);
     }
     /// <summary>
     /// Interface to implement callback methods for all input action callbacks associated with input actions defined by "Casting" which allows adding and removing callbacks.

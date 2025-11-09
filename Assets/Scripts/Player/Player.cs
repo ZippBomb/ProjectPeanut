@@ -5,12 +5,12 @@ using UnityEngine.InputSystem;
 public class Player : MonoBehaviour {
 
     public static Player instance;
-    public MainInput.PlayerActions input { get; private set; }
+    public MainInput input { get; private set; }
 
     private void Awake() {
 
         instance = this;
-        input = Game.input.Player;
+        input = Game.input;
 
     }
 
@@ -62,11 +62,6 @@ public class Player : MonoBehaviour {
             stat.HookUI(indicator);
 
         }
-
-        input.UseLeftItem.performed += UseLeftItem;
-        input.UseRightItem.performed += UseRightItem;
-
-        input.Castspell.performed += CastSpell;
         
     }
     private void Update() {
@@ -83,12 +78,33 @@ public class Player : MonoBehaviour {
     private void OnEnable() {
 
         if (Game.inMainMenu) return;
-        input.Enable();
+
+        input.Player.Enable();
+        input.Items.Enable();
+
+        input.Items.UseLeftItem.performed += UseLeftItem;
+        input.Items.UseRightItem.performed += UseRightItem;
+
+        input.Items.DropLeftItem.performed += DropLeftItem;
+        input.Items.DropRightItem.performed += DropRightItem;
+
+        input.Player.Castspell.performed += CastSpell;
 
     }
     private void OnDisable() {
 
-        input.Disable();
+        if (Game.inMainMenu) return;
+
+        input.Player.Disable();
+        input.Items.Disable();
+
+        input.Items.UseLeftItem.performed -= UseLeftItem;
+        input.Items.UseRightItem.performed -= UseRightItem;
+
+        input.Items.DropLeftItem.performed -= DropLeftItem;
+        input.Items.DropRightItem.performed -= DropRightItem;
+
+        input.Player.Castspell.performed -= CastSpell;
 
     }
 
@@ -135,18 +151,29 @@ public class Player : MonoBehaviour {
     
     private void UseLeftItem(InputAction.CallbackContext ctx) {
 
-        if (!alive) return;
         if (leftItem == null) return;
-
         leftItem.Use(Hand.Left);
 
     }
     private void UseRightItem(InputAction.CallbackContext ctx) {
 
-        if (!alive) return;
         if (rightItem == null) return;
-
         rightItem.Use(Hand.Right);
+
+    }
+
+    private void DropLeftItem(InputAction.CallbackContext ctx) {
+
+        if (leftItem == null) return;
+        
+        RemoveLeftItem();
+
+    }
+    private void DropRightItem(InputAction.CallbackContext ctx) {
+
+        if (rightItem == null) return;
+        
+        RemoveRightItem();
 
     }
     

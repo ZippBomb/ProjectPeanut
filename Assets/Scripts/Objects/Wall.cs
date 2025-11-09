@@ -63,8 +63,6 @@ public class Wall : Stareable {
 
     private void Update() {
 
-        if (!Player.instance.alive) return;
-
         UpdateHP();
         HandleStage();
 
@@ -111,6 +109,8 @@ public class Wall : Stareable {
         } else {
 
             stage = 3; // Game over
+
+            if (Game.inMainMenu || !Player.instance.alive) return;
 
             playerHealth.Damage(gameOverDamage * Time.deltaTime);
             gameOverDamage += gameOverDamageMultiplier * Time.deltaTime;

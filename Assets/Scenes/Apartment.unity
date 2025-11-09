@@ -2080,7 +2080,7 @@ MonoBehaviour:
   mainMenu: {fileID: 1375887449}
   mainMenuCamera: {fileID: 1900914464}
   dayLength: 1
-  dayLengthInMinutes: 0
+  dayLengthInMinutes: 1
   day: 1
   difficultyMultiplier: 1.5
   player: {fileID: 926074443}
