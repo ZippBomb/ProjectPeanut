@@ -957,6 +957,59 @@ Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: d523d4f0948a8304cae9342b190c159e, type: 3}
   m_PrefabInstance: {fileID: 531269008}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &577578315
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 577578316}
+  - component: {fileID: 577578317}
+  m_Layer: 0
+  m_Name: Ground collider
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &577578316
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 577578315}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1325257237}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &577578317
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 577578315}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 21.800003, y: 1, z: 25.400003}
+  m_Center: {x: -6.200001, y: 0, z: 7.999999}
 --- !u!1 &715866093
 GameObject:
   m_ObjectHideFlags: 0
@@ -1420,9 +1473,17 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 0}
     - target: {fileID: 4444462620945935875, guid: f6db0d2226f43bc4c80c1183eab75e34, type: 3}
+      propertyPath: thrownItemForce
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 4444462620945935875, guid: f6db0d2226f43bc4c80c1183eab75e34, type: 3}
       propertyPath: stats.Array.size
       value: 3
       objectReference: {fileID: 0}
+    - target: {fileID: 4444462620945935875, guid: f6db0d2226f43bc4c80c1183eab75e34, type: 3}
+      propertyPath: thrownItemPrefab
+      value: 
+      objectReference: {fileID: 8656020875381666704, guid: b055bd54097b4d342a553923872f674a, type: 3}
     - target: {fileID: 4444462620945935875, guid: f6db0d2226f43bc4c80c1183eab75e34, type: 3}
       propertyPath: spells.Array.size
       value: 5
@@ -2230,6 +2291,7 @@ Transform:
   - {fileID: 1894937002}
   - {fileID: 1331194623}
   - {fileID: 287111251}
+  - {fileID: 577578316}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1331194622

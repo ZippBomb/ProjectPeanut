@@ -32,6 +32,9 @@ public class Player : MonoBehaviour {
     [SerializeField] private Item leftItem;
     [SerializeField] private Item rightItem;
 
+    [SerializeField] private GameObject thrownItemPrefab;
+    [SerializeField] private float thrownItemForce = 10.0f;
+
     [Space]
     [SerializeField] private GameObject leftItemPreview;
     [SerializeField] private GameObject rightItemPreview;
@@ -50,6 +53,10 @@ public class Player : MonoBehaviour {
             "Left item previe assigned to player is missing Mesh Renderer and/or Mesh Filter components!");
         Game.Assert(rightItemPreview.GetComponent<MeshRenderer>() != null && rightItemPreview.GetComponent<MeshFilter>() != null,
             "Right item previe assigned to player is missing Mesh Renderer and/or Mesh Filter components!");
+
+        Game.Assert(thrownItemPrefab != null, "No thrown item prefab assigned.");
+        Game.Assert(thrownItemPrefab.GetComponent<MeshFilter>() != null, "Thrown item prefab is missing MeshFilter component.");
+        Game.Assert(thrownItemPrefab.GetComponent<Rigidbody>() != null, "Thrown item prefab is missing RigidBody component.");
 
         if (leftItem != null)
             SetLeftItem(leftItem);
@@ -165,6 +172,13 @@ public class Player : MonoBehaviour {
     private void DropLeftItem(InputAction.CallbackContext ctx) {
 
         if (leftItem == null) return;
+
+        Vector3 position = cam.transform.position + cam.transform.forward * 0.5f;
+        GameObject thrownItem = Instantiate(thrownItemPrefab, position, Quaternion.identity);
+
+        thrownItem.GetComponent<MeshFilter>().mesh = leftItem.mesh;
+        thrownItem.GetComponent<MeshRenderer>().material = leftItem.material;
+        thrownItem.GetComponent<Rigidbody>().AddForce(cam.transform.forward * thrownItemForce);
         
         RemoveLeftItem();
 
@@ -172,6 +186,13 @@ public class Player : MonoBehaviour {
     private void DropRightItem(InputAction.CallbackContext ctx) {
 
         if (rightItem == null) return;
+
+        Vector3 position = cam.transform.position + cam.transform.forward * 0.5f;
+        GameObject thrownItem = Instantiate(thrownItemPrefab, position, Quaternion.identity);
+
+        thrownItem.GetComponent<MeshFilter>().mesh = rightItem.mesh;
+        thrownItem.GetComponent<MeshRenderer>().material = rightItem.material;
+        thrownItem.GetComponent<Rigidbody>().AddForce(cam.transform.forward * thrownItemForce);
         
         RemoveRightItem();
 
