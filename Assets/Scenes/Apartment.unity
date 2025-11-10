@@ -1984,121 +1984,9 @@ PrefabInstance:
       value: Player
       objectReference: {fileID: 0}
     - target: {fileID: 4444462620945935875, guid: f6db0d2226f43bc4c80c1183eab75e34, type: 3}
-      propertyPath: leftItem
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 4444462620945935875, guid: f6db0d2226f43bc4c80c1183eab75e34, type: 3}
-      propertyPath: rightItem
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 4444462620945935875, guid: f6db0d2226f43bc4c80c1183eab75e34, type: 3}
-      propertyPath: thrownItemForce
-      value: 100
-      objectReference: {fileID: 0}
-    - target: {fileID: 4444462620945935875, guid: f6db0d2226f43bc4c80c1183eab75e34, type: 3}
-      propertyPath: stats.Array.size
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 4444462620945935875, guid: f6db0d2226f43bc4c80c1183eab75e34, type: 3}
-      propertyPath: thrownItemPrefab
-      value: 
-      objectReference: {fileID: 8656020875381666704, guid: b055bd54097b4d342a553923872f674a, type: 3}
-    - target: {fileID: 4444462620945935875, guid: f6db0d2226f43bc4c80c1183eab75e34, type: 3}
-      propertyPath: spells.Array.size
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 4444462620945935875, guid: f6db0d2226f43bc4c80c1183eab75e34, type: 3}
       propertyPath: statIndicatorParent
       value: 
       objectReference: {fileID: 255087065}
-    - target: {fileID: 4444462620945935875, guid: f6db0d2226f43bc4c80c1183eab75e34, type: 3}
-      propertyPath: 'spells.Array.data[3]'
-      value: 
-      objectReference: {fileID: 11400000, guid: 078610e9f82e18f4a90fd045373c74de, type: 2}
-    - target: {fileID: 4444462620945935875, guid: f6db0d2226f43bc4c80c1183eab75e34, type: 3}
-      propertyPath: 'spells.Array.data[4]'
-      value: 
-      objectReference: {fileID: 11400000, guid: 4d278fff318ea0c45acca0d32c39fd33, type: 2}
-    - target: {fileID: 4444462620945935875, guid: f6db0d2226f43bc4c80c1183eab75e34, type: 3}
-      propertyPath: stats.Array.data[4].name
-      value: Toilet
-      objectReference: {fileID: 0}
-    - target: {fileID: 4444462620945935875, guid: f6db0d2226f43bc4c80c1183eab75e34, type: 3}
-      propertyPath: stats.Array.data[5].name
-      value: Toilet
-      objectReference: {fileID: 0}
-    - target: {fileID: 4444462620945935875, guid: f6db0d2226f43bc4c80c1183eab75e34, type: 3}
-      propertyPath: stats.Array.data[4].value
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4444462620945935875, guid: f6db0d2226f43bc4c80c1183eab75e34, type: 3}
-      propertyPath: stats.Array.data[5].maxValue
-      value: 100
-      objectReference: {fileID: 0}
-    - target: {fileID: 4444462620945935875, guid: f6db0d2226f43bc4c80c1183eab75e34, type: 3}
-      propertyPath: stats.Array.data[4].fillColor.b
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4444462620945935875, guid: f6db0d2226f43bc4c80c1183eab75e34, type: 3}
-      propertyPath: stats.Array.data[4].fillColor.g
-      value: 0.98480475
-      objectReference: {fileID: 0}
-    - target: {fileID: 4444462620945935875, guid: f6db0d2226f43bc4c80c1183eab75e34, type: 3}
-      propertyPath: stats.Array.data[4].fillColor.r
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4444462620945935875, guid: f6db0d2226f43bc4c80c1183eab75e34, type: 3}
-      propertyPath: stats.Array.data[5].fillColor.a
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4444462620945935875, guid: f6db0d2226f43bc4c80c1183eab75e34, type: 3}
-      propertyPath: stats.Array.data[5].fillColor.g
-      value: 0.98480475
-      objectReference: {fileID: 0}
-    - target: {fileID: 4444462620945935875, guid: f6db0d2226f43bc4c80c1183eab75e34, type: 3}
-      propertyPath: stats.Array.data[5].fillColor.r
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4444462620945935875, guid: f6db0d2226f43bc4c80c1183eab75e34, type: 3}
-      propertyPath: stats.Array.data[1].replenishRate
-      value: -0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 4444462620945935875, guid: f6db0d2226f43bc4c80c1183eab75e34, type: 3}
-      propertyPath: stats.Array.data[2].replenishRate
-      value: -1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4444462620945935875, guid: f6db0d2226f43bc4c80c1183eab75e34, type: 3}
-      propertyPath: stats.Array.data[4].replenishRate
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 4444462620945935875, guid: f6db0d2226f43bc4c80c1183eab75e34, type: 3}
-      propertyPath: stats.Array.data[5].replenishRate
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 4444462620945935875, guid: f6db0d2226f43bc4c80c1183eab75e34, type: 3}
-      propertyPath: stats.Array.data[4].backgroundColor.b
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4444462620945935875, guid: f6db0d2226f43bc4c80c1183eab75e34, type: 3}
-      propertyPath: stats.Array.data[4].backgroundColor.g
-      value: 0.5471698
-      objectReference: {fileID: 0}
-    - target: {fileID: 4444462620945935875, guid: f6db0d2226f43bc4c80c1183eab75e34, type: 3}
-      propertyPath: stats.Array.data[4].backgroundColor.r
-      value: 0.5382777
-      objectReference: {fileID: 0}
-    - target: {fileID: 4444462620945935875, guid: f6db0d2226f43bc4c80c1183eab75e34, type: 3}
-      propertyPath: stats.Array.data[5].backgroundColor.a
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4444462620945935875, guid: f6db0d2226f43bc4c80c1183eab75e34, type: 3}
-      propertyPath: stats.Array.data[5].backgroundColor.g
-      value: 0.5471698
-      objectReference: {fileID: 0}
-    - target: {fileID: 4444462620945935875, guid: f6db0d2226f43bc4c80c1183eab75e34, type: 3}
-      propertyPath: stats.Array.data[5].backgroundColor.r
-      value: 0.5382777
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -3162,7 +3050,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8709a90b50b9d564e8ab00cdbbdd3e9c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  apartmentSceneIndex: 1
+  apartmentSceneIndex: 0
   mainMenu: {fileID: 1375887449}
   mainMenuCamera: {fileID: 1900914464}
   dayLength: 1
@@ -4820,7 +4708,7 @@ GameObject:
   - component: {fileID: 1711813855247584117}
   - component: {fileID: 3469287837899112384}
   - component: {fileID: 3469287837899112385}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Fridge
   m_TagString: Untagged
   m_Icon: {fileID: 0}

@@ -22,6 +22,7 @@ public class Player : MonoBehaviour {
     [Header("Stareables")]
     [SerializeField] private LayerMask stareableMask;
     [SerializeField] private Stareable currentStareable;
+    [SerializeField] private float stareableMaxDist = 50.0f;
 
     [Header("Stats")]
     [SerializeField] private Stat[] stats = new Stat[] { new HealthStat(), new SatietyStat(), new ThirstStat() };
@@ -152,11 +153,11 @@ public class Player : MonoBehaviour {
     private void HandleStareableRay() {
         
         RaycastHit hit;
-        if (Physics.Raycast(cam.transform.position, cam.transform.forward, out hit, 1000.0f, stareableMask)) {
-            
+        if (Physics.Raycast(cam.transform.position, cam.transform.forward, out hit, 100.0f, stareableMask)) {
+
             Stareable stareable = hit.collider.GetComponent<Stareable>();
             if (stareable != null) {
-                
+
                 if (currentStareable != null)
                     currentStareable.SetStareAt(false);
 

@@ -1,5 +1,5 @@
 using System.Collections.Generic;
-
+using System.Runtime.CompilerServices;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -32,6 +32,7 @@ public class Fridge : Stareable {
 
     private void Interact(InputAction.CallbackContext ctx) {
 
+        if (!isStaredAt) return;
         if (inStock.Count == 0) return;
 
         Item item = inStock[0];
