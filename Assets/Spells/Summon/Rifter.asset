@@ -15,11 +15,11 @@ MonoBehaviour:
   castLogic:
     rid: 7911273245469048907
   castLogicType: 1
-  summon: {fileID: 4562504116103368894, guid: 57342885fb4448f47b8d9eba86592240, type: 3}
+  summon: {fileID: 1582267201896029938, guid: 57342885fb4448f47b8d9eba86592240, type: 3}
   references:
     version: 2
     RefIds:
     - rid: 7911273245469048907
       type: {class: CooldownCastLogic, ns: , asm: Assembly-CSharp}
       data:
-        cooldown: 60
+        cooldown: 2

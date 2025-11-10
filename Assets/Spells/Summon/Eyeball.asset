@@ -22,4 +22,4 @@ MonoBehaviour:
     - rid: 7911273334612164685
       type: {class: CooldownCastLogic, ns: , asm: Assembly-CSharp}
       data:
-        cooldown: 5
+        cooldown: 2

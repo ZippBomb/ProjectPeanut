@@ -24,7 +24,7 @@ public class Player : MonoBehaviour {
     [SerializeField] private Stareable currentStareable;
 
     [Header("Stats")]
-    [SerializeField] private Stat[] stats = new Stat[] { new HealthStat(), new SatietyStat(), new ThirstStat(), new ExhaustionStat(), new ToiletStat() };
+    [SerializeField] private Stat[] stats = new Stat[] { new HealthStat(), new SatietyStat(), new ThirstStat() };
     [SerializeField] private Transform statIndicatorParent;
     [SerializeField] private GameObject statIndicatorPrefab;
 
