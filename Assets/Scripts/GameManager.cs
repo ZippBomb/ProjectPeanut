@@ -38,6 +38,10 @@ public class GameManager : MonoBehaviour {
     [SerializeField] private Transform hourHand;
     [SerializeField] private Transform minuteHand;
 
+    [Header("Pause menu")]
+    public bool pauseMenuOpen = false;
+    [SerializeField] private GameObject pauseMenuScreen;
+
     [Header("Game over")]
     [SerializeField] private GameObject gameOverScreen;
 
@@ -104,6 +108,33 @@ public class GameManager : MonoBehaviour {
         Cursor.lockState = CursorLockMode.None;
 
         Time.timeScale = 0.0f;
+
+    }
+
+    public void OpenPauseMenu() {
+        
+        pauseMenuScreen.SetActive(true);
+
+        Game.input.Disable();
+        Game.input.Player.Pause.Enable();
+
+        Cursor.visible = true;
+        Cursor.lockState = CursorLockMode.None;
+
+        Time.timeScale = 0.0f;
+
+    }
+    public void ClosePauseMenu() {
+        
+        pauseMenuScreen.SetActive(false);
+
+        Game.input.Player.Enable();
+        Game.input.Items.Enable();
+
+        Cursor.visible = false;
+        Cursor.lockState = CursorLockMode.Locked;
+
+        Time.timeScale = 1.0f;
 
     }
 

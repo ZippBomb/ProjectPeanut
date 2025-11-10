@@ -97,6 +97,8 @@ public class Player : MonoBehaviour {
 
         input.Player.Castspell.performed += CastSpell;
 
+        input.Player.Pause.performed += TogglePauseMenu;
+
     }
     private void OnDisable() {
 
@@ -113,6 +115,8 @@ public class Player : MonoBehaviour {
 
         input.Player.Castspell.performed -= CastSpell;
 
+        input.Player.Pause.performed -= TogglePauseMenu;
+
     }
 
     public void Die() {
@@ -122,6 +126,24 @@ public class Player : MonoBehaviour {
         Game.input.Disable();
 
         GameManager.instance.GameOver();
+
+    }
+
+    private void TogglePauseMenu(InputAction.CallbackContext ctx) {
+
+        if (!alive) return;
+
+        if (SummonManager.instance.InProgress()) {
+            
+            SummonManager.instance.CancelSummon();
+            return;
+
+        }
+        
+        if (GameManager.instance.pauseMenuOpen)
+            GameManager.instance.ClosePauseMenu();
+        else
+            GameManager.instance.OpenPauseMenu();
 
     }
 

@@ -101,4 +101,18 @@ public class SummonManager : MonoBehaviour {
 
     }
 
+    public void CancelSummon() {
+        
+        preview.SetActive(false);
+        summon = null;
+
+        Game.input.Casting.Disable();
+
+        Game.EnableInventoryInput();
+        Game.EnableInteractionInput();
+
+    }
+
+    public bool InProgress() { return summon != null; }
+
 }
