@@ -1,5 +1,4 @@
 using System.Collections.Generic;
-using System.Runtime.CompilerServices;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -13,11 +12,6 @@ public class Fridge : Stareable {
 
     private float lastSpawnTime = 0.0f;
 
-    private void Start() {
-
-        Game.input.Player.Interact.performed += Interact;
-
-    }
     private void Update() {
 
         if (Time.time < lastSpawnTime + spawnInterval) return;
@@ -30,7 +24,7 @@ public class Fridge : Stareable {
 
     }
 
-    private void Interact(InputAction.CallbackContext ctx) {
+    public override void Interact() {
 
         if (!isStaredAt) return;
         if (inStock.Count == 0) return;

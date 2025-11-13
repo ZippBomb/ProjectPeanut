@@ -38,11 +38,9 @@ public abstract class Summon : MonoBehaviour {
 
     }
 
-    public virtual void OnSummoned() {
+    public virtual void OnSummoned() {}
 
-        //
-
-    }
+    public virtual bool OnUpdatePreview(GameObject preview, RaycastHit hit) { return true; }
 
     public void Damage(float value) {
         

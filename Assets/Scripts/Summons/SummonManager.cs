@@ -48,6 +48,13 @@ public class SummonManager : MonoBehaviour {
             return;
 
         }
+        if (!summon.GetComponent<Summon>().OnUpdatePreview(preview, hit)) {
+            
+            preview.SetActive(false);
+            return;
+
+        } else if (!preview.activeSelf)
+            preview.SetActive(true);
 
         preview.transform.position = hit.point;
 
@@ -85,6 +92,7 @@ public class SummonManager : MonoBehaviour {
     private void CastSummon(InputAction.CallbackContext ctx) {
         
         if (summon == null) return;
+        if (!preview.activeSelf) return;
 
         Instantiate(summon, preview.transform.position, preview.transform.rotation);
         preview.SetActive(false);

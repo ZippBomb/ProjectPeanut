@@ -7,13 +7,6 @@ public class Eyeball : Summon {
 
     [SerializeField] private LayerMask wallMask;
 
-    private void OnDrawGizmos() {
-        
-        Gizmos.color = Color.red;
-        Gizmos.DrawRay(eye.position, -eye.up);
-
-    }
-
     private void Update() {
 
         UpdateSummon();
@@ -36,12 +29,28 @@ public class Eyeball : Summon {
         
     }
 
+    public override bool OnUpdatePreview(GameObject preview, RaycastHit hit) {
+        
+        if (hit.normal != Vector3.down) { Debug.LogError("Now ceiling."); return false; }
+        if (hit.point.y < 5.0f) { Debug.LogError("Too low, " + hit.point.y); return false; }
+
+        return true;
+
+    }
+
     void OnDestroy() {
 
         if (Wall.instance == null) return;
         
         Wall.instance.SetStareAt(false);
         Wall.instance.UpdateUnitsInRange();
+
+    }
+
+    private void OnDrawGizmos() {
+        
+        Gizmos.color = Color.red;
+        Gizmos.DrawRay(eye.position, -eye.up);
 
     }
 

@@ -383,7 +383,7 @@ MonoBehaviour:
   cam: {fileID: 707517811511662440}
   stareableMask:
     serializedVersion: 2
-    m_Bits: 64
+    m_Bits: 320
   currentStareable: {fileID: 0}
   stareableMaxDist: 100
   stats:

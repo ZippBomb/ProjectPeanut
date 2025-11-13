@@ -10,4 +10,6 @@ public class Stareable : MonoBehaviour {
 
     }
 
+    public virtual void Interact() {}
+
 }

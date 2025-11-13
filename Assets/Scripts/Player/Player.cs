@@ -58,6 +58,7 @@ public class Player : MonoBehaviour {
         Game.Assert(thrownItemPrefab != null, "No thrown item prefab assigned.");
         Game.Assert(thrownItemPrefab.GetComponent<MeshFilter>() != null, "Thrown item prefab is missing MeshFilter component.");
         Game.Assert(thrownItemPrefab.GetComponent<Rigidbody>() != null, "Thrown item prefab is missing RigidBody component.");
+        Game.Assert(thrownItemPrefab.GetComponent<ThrownItem>() != null, "Thrown item prefab is missing ThrownItem component");
 
         if (leftItem != null)
             SetLeftItem(leftItem);
@@ -90,15 +91,16 @@ public class Player : MonoBehaviour {
         input.Player.Enable();
         input.Items.Enable();
 
+        input.Player.Interact.performed += Interact;
+        input.Player.Castspell.performed += CastSpell;
+
+        input.Player.Pause.performed += TogglePauseMenu;
+
         input.Items.UseLeftItem.performed += UseLeftItem;
         input.Items.UseRightItem.performed += UseRightItem;
 
         input.Items.DropLeftItem.performed += DropLeftItem;
         input.Items.DropRightItem.performed += DropRightItem;
-
-        input.Player.Castspell.performed += CastSpell;
-
-        input.Player.Pause.performed += TogglePauseMenu;
 
     }
     private void OnDisable() {
@@ -108,15 +110,16 @@ public class Player : MonoBehaviour {
         input.Player.Disable();
         input.Items.Disable();
 
+        input.Player.Interact.performed -= Interact;
+        input.Player.Castspell.performed -= CastSpell;
+
+        input.Player.Pause.performed -= TogglePauseMenu;
+        
         input.Items.UseLeftItem.performed -= UseLeftItem;
         input.Items.UseRightItem.performed -= UseRightItem;
 
         input.Items.DropLeftItem.performed -= DropLeftItem;
         input.Items.DropRightItem.performed -= DropRightItem;
-
-        input.Player.Castspell.performed -= CastSpell;
-
-        input.Player.Pause.performed -= TogglePauseMenu;
 
     }
 
@@ -127,6 +130,7 @@ public class Player : MonoBehaviour {
         Game.input.Disable();
 
         GameManager.instance.GameOver();
+        GameManager.instance.crosshair.SetActive(false);
 
     }
 
@@ -177,6 +181,13 @@ public class Player : MonoBehaviour {
 
     }
 
+    private void Interact(InputAction.CallbackContext ctx) {
+        
+        if (currentStareable == null) return;
+        currentStareable.Interact();
+
+    }
+
     // Item system
     
     private void UseLeftItem(InputAction.CallbackContext ctx) {
@@ -203,6 +214,8 @@ public class Player : MonoBehaviour {
         thrownItem.GetComponent<MeshRenderer>().material = leftItem.material;
         thrownItem.GetComponent<Rigidbody>().AddForce(cam.transform.forward * thrownItemForce);
         
+        thrownItem.GetComponent<ThrownItem>().item = leftItem;
+
         RemoveLeftItem();
 
     }
@@ -217,6 +230,8 @@ public class Player : MonoBehaviour {
         thrownItem.GetComponent<MeshRenderer>().material = rightItem.material;
         thrownItem.GetComponent<Rigidbody>().AddForce(cam.transform.forward * thrownItemForce);
         
+        thrownItem.GetComponent<ThrownItem>().item = rightItem;
+
         RemoveRightItem();
 
     }

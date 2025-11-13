@@ -14,6 +14,7 @@ public class GameManager : MonoBehaviour {
     }
 
     [SerializeField] private int apartmentSceneIndex = 1;
+    public GameObject crosshair;
 
     [Header("Main Menu")]
     [SerializeField] private GameObject mainMenu;
@@ -98,6 +99,8 @@ public class GameManager : MonoBehaviour {
         Player.instance.alive = false;
         Player.instance.gameObject.SetActive(false);
 
+        crosshair.SetActive(false);
+
     }
 
     public void GameOver() {
@@ -115,6 +118,8 @@ public class GameManager : MonoBehaviour {
         
         pauseMenuScreen.SetActive(true);
 
+        crosshair.SetActive(false);
+
         Game.input.Disable();
         Game.input.Player.Pause.Enable();
 
@@ -127,6 +132,8 @@ public class GameManager : MonoBehaviour {
     public void ClosePauseMenu() {
         
         pauseMenuScreen.SetActive(false);
+
+        crosshair.SetActive(true);
 
         Game.input.Player.Enable();
         Game.input.Items.Enable();
