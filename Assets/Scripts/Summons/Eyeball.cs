@@ -31,8 +31,8 @@ public class Eyeball : Summon {
 
     public override bool OnUpdatePreview(GameObject preview, RaycastHit hit) {
         
-        if (hit.normal != Vector3.down) { Debug.LogError("Now ceiling."); return false; }
-        if (hit.point.y < 5.0f) { Debug.LogError("Too low, " + hit.point.y); return false; }
+        if (hit.normal != Vector3.down) return false;
+        if (hit.point.y < 5.0f) return false;
 
         return true;
 

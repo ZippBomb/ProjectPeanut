@@ -8,6 +8,7 @@ public class Rift : Stareable {
     [SerializeField] private float damageRate = 0.8f;
     [SerializeField] private float healRate = 1.0f;
 
+    [SerializeField] private Vector3 minScale;
     private Vector3 startScale;
 
     private void Start() {
@@ -31,7 +32,7 @@ public class Rift : Stareable {
 
         // Grow/shrink based on hp
 
-        transform.localScale = startScale * (health / maxHealth);
+        transform.localScale = minScale + startScale * (health / maxHealth);
 
     }
 

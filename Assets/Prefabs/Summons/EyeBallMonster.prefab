@@ -155,9 +155,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7846b29019daeb44fb9a3c7a2bc0d201, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 100
+  health: 50
   maxHealth: 100
   damageRate: 1
+  inWallRange: 0
   previewMesh: {fileID: -6101138680756899647, guid: 79c520a0066922849a22f5c65745af8f, type: 3}
   previewOffset: {x: 0, y: -1.5, z: 0}
   previewSize: {x: 25, y: 25, z: 25}

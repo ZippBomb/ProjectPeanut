@@ -63,6 +63,9 @@ public class Wall : Stareable {
 
     private void Update() {
 
+        if (isStaredAt)
+            lastSpawnAttempt = Time.time;
+
         UpdateHP();
         HandleStage();
 
