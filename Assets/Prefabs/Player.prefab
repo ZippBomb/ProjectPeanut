@@ -384,7 +384,7 @@ MonoBehaviour:
   cam: {fileID: 707517811511662440}
   stareableMask:
     serializedVersion: 2
-    m_Bits: 320
+    m_Bits: 448
   currentStareable: {fileID: 0}
   stareableMaxDist: 100
   stats:
@@ -439,7 +439,7 @@ MonoBehaviour:
   groundMask:
     serializedVersion: 2
     m_Bits: 1536
-  groundCheck: {fileID: 0}
+  groundCheck: {fileID: 4839917675081794477}
   groundDistance: 0.4
 --- !u!114 &658366270089756787
 MonoBehaviour:

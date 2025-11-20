@@ -7,9 +7,9 @@ public class Eyeball : Summon {
 
     [SerializeField] private LayerMask wallMask;
 
-    private void Update() {
+    public override void UpdateSummon() {
 
-        UpdateSummon();
+        base.UpdateSummon();
 
         RaycastHit hit;
         if (!Physics.Raycast(eye.position, -eye.up, out hit, 1000.0f, wallMask)) {
@@ -38,12 +38,13 @@ public class Eyeball : Summon {
 
     }
 
-    void OnDestroy() {
+    public override void OnDestroy() {
+
+        base.OnDestroy();
 
         if (Wall.instance == null) return;
         
         Wall.instance.SetStareAt(false);
-        Wall.instance.UpdateUnitsInRange();
 
     }
 

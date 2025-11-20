@@ -1,5 +1,6 @@
 using Unity.Collections;
 using UnityEngine;
+using UnityEngine.UI;
 using UnityEngine.InputSystem;
 
 public class SummonManager : MonoBehaviour {
@@ -23,6 +24,10 @@ public class SummonManager : MonoBehaviour {
     [SerializeField] private GameObject previewPrefab;
     [SerializeField, ReadOnly] private GameObject summon;
 
+    [Header("Unit HP Indicator")]
+    [SerializeField] private GameObject hpIndicatorPrefab;
+    [SerializeField] private Transform hpIndicatorParent;
+
     private GameObject preview;
     private Transform previewMesh;
 
@@ -34,6 +39,11 @@ public class SummonManager : MonoBehaviour {
         preview.SetActive(false);
 
         previewMesh = preview.transform.GetChild(0);
+
+        Game.Assert(hpIndicatorPrefab.transform.GetChild(1).GetComponent<Image>() != null, "Unit HP Indicator prefab's first child (Background) is missing an Image component.");
+
+        Game.Assert(hpIndicatorPrefab.transform.GetChild(0).GetComponent<Image>() != null, "Unit HP Indicator prefab's second child (Fill) is missing an Image component.");
+        Game.Assert(hpIndicatorPrefab.transform.GetChild(0).GetComponent<Image>().type != Image.Type.Filled, "Unit HP Indicator prefab's second child's (Fill) Image component is not set to Filled type.");
 
     }
     private void Update() {
@@ -94,10 +104,12 @@ public class SummonManager : MonoBehaviour {
         if (summon == null) return;
         if (!preview.activeSelf) return;
 
-        Instantiate(summon, preview.transform.position, preview.transform.rotation);
+        GameObject summonGO = Instantiate(summon, preview.transform.position, preview.transform.rotation);
         preview.SetActive(false);
 
-        summon.GetComponent<Summon>().OnSummoned();
+        GameObject hpIndicator = Instantiate(hpIndicatorPrefab, hpIndicatorParent);
+
+        summonGO.GetComponent<Summon>().OnSummoned(hpIndicator);
         Wall.instance.UpdateUnitsInRange();
 
         summon = null;
