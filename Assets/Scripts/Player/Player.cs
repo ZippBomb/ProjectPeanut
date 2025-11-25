@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.UI;
 
 public class Player : MonoBehaviour {
 
@@ -43,6 +44,9 @@ public class Player : MonoBehaviour {
     [Header("Spell system")]
     [SerializeField] private List<Spell> spells = new List<Spell>();
 
+    [SerializeField] private GameObject cooldownPrefab;
+    [SerializeField] private Transform cooldownParent;
+
     private void Start() {
 
         if (Game.inMainMenu) return;
@@ -60,6 +64,10 @@ public class Player : MonoBehaviour {
         Game.Assert(thrownItemPrefab.GetComponent<Rigidbody>() != null, "Thrown item prefab is missing RigidBody component.");
         Game.Assert(thrownItemPrefab.GetComponent<ThrownItem>() != null, "Thrown item prefab is missing ThrownItem component");
 
+        Game.Assert(cooldownPrefab != null, "Cooldown prefab not assinged.");
+        Game.Assert(cooldownPrefab.GetComponent<Image>() != null, "Cooldown prefab is missing Image component.");
+        Game.Assert(cooldownPrefab.GetComponent<Image>().type == Image.Type.Filled, "Cooldown image is not set to Filled type.");
+
         if (leftItem != null)
             SetLeftItem(leftItem);
         if (rightItem != null)
@@ -71,6 +79,13 @@ public class Player : MonoBehaviour {
             stat.HookUI(indicator);
 
         }
+
+        foreach (Spell spell in spells) {
+            
+            GameObject cooldownIcon = Instantiate(cooldownPrefab, cooldownParent);
+            spell.HookUI(cooldownIcon.GetComponent<Image>());
+
+        }
         
     }
     private void Update() {
@@ -79,6 +94,9 @@ public class Player : MonoBehaviour {
 
         foreach (Stat stat in stats)
             stat.Update();
+
+        foreach (Spell spell in spells)
+            spell.Update();
 
         HandleStareableRay();
         

@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.UI;
 
 [CreateAssetMenu(fileName = "Spell", menuName = "Spells/Spell", order = 0)]
 public class Spell : ScriptableObject {
@@ -7,6 +8,12 @@ public class Spell : ScriptableObject {
     public SpellCastLogic castLogic = new SpellCastLogic();
     [HideInInspector]
     public SpellCastLogic.Type castLogicType = SpellCastLogic.Type.Instant;
+
+    public virtual void Update() {
+        
+        castLogic.Update();
+
+    }
 
     public virtual void Cast() {
 
@@ -18,6 +25,15 @@ public class Spell : ScriptableObject {
         Game.Assert(castLogic != null, "Spell '" + name + "' has no cast logic.");
 
         castLogic.OnCastAttempted(this);
+
+    }
+
+    public void HookUI(Image cooldownIcon) {
+        
+        if (castLogicType != SpellCastLogic.Type.Cooldown) return;
+
+        CooldownCastLogic cooldownLogic = (CooldownCastLogic) castLogic;
+        cooldownLogic.HookUI(cooldownIcon);
 
     }
 
