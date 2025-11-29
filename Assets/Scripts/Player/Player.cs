@@ -66,7 +66,10 @@ public class Player : MonoBehaviour {
 
         Game.Assert(cooldownPrefab != null, "Cooldown prefab not assinged.");
         Game.Assert(cooldownPrefab.GetComponent<Image>() != null, "Cooldown prefab is missing Image component.");
-        Game.Assert(cooldownPrefab.GetComponent<Image>().type == Image.Type.Filled, "Cooldown image is not set to Filled type.");
+        
+        Image tmp = cooldownPrefab.transform.GetChild(0).GetComponent<Image>();
+        Game.Assert(tmp != null, "Cooldown prefab child not assinged.");
+        Game.Assert(tmp.type == Image.Type.Filled, "Cooldown image child is not set to Filled type.");
 
         if (leftItem != null)
             SetLeftItem(leftItem);

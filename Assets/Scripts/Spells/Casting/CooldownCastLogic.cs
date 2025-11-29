@@ -5,6 +5,7 @@ using UnityEngine.UI;
 public class CooldownCastLogic : SpellCastLogic {
 
     public float cooldown = 1.0f;
+    public Sprite icon;
 
     [System.NonSerialized]
     private float lastCastTime = 0.0f;
@@ -16,13 +17,13 @@ public class CooldownCastLogic : SpellCastLogic {
 
         base.Update();
 
-        if (!cooldownIcon.enabled) return;
+        if (cooldownIcon.fillAmount <= 0.0f) return;
 
         float progress = (Time.time - lastCastTime) / cooldown;
         cooldownIcon.fillAmount = 1.0f - progress;
 
         if (progress >= 1.0f)
-            cooldownIcon.enabled = false;
+            cooldownIcon.fillAmount = 0.0f;
 
     }
 
@@ -33,13 +34,14 @@ public class CooldownCastLogic : SpellCastLogic {
         base.OnCastAttempted(spell);
 
         lastCastTime = Time.time;
-        cooldownIcon.enabled = true;
+        cooldownIcon.fillAmount = 1.0f;
 
     }
 
     public void HookUI(Image cooldownIcon) {
         
-        this.cooldownIcon = cooldownIcon;
+        this.cooldownIcon = cooldownIcon.transform.GetChild(0).GetComponent<Image>();
+        cooldownIcon.sprite = icon;
 
     }
 

@@ -24,3 +24,4 @@ MonoBehaviour:
       type: {class: CooldownCastLogic, ns: , asm: Assembly-CSharp}
       data:
         cooldown: 45
+        icon: {fileID: 21300000, guid: 1034086d7e060f349940a876fd745627, type: 3}
