@@ -36,6 +36,13 @@ public class Rift : Stareable {
 
     }
 
+    public override void SetStareAt(bool value) {
+
+        base.SetStareAt(value);
+        Wall.instance.SetStareAt(value);
+
+    }
+
     private void Die() {
 
         Wall.instance.RemoveRift(this);

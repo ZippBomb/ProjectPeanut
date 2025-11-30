@@ -21,9 +21,6 @@ public class Wall : Stareable {
     [SerializeField] private int stage = 0;
 
     [Header("Stage 1")]
-    [SerializeField] private float baseDamage = 1.0f;
-
-    [Header("Stage 2")]
     [SerializeField] private GameObject riftPrefab;
     [SerializeField] private float spawnTimer = 5.0f;
     [SerializeField, Range(0, 100)] private float spawnChance = 50;
@@ -90,28 +87,19 @@ public class Wall : Stareable {
         
         if (hpPercantage >= 0.95f)
             stage = 0;
-        else if (hpPercantage >= 0.7f) {
-
-            // Damage the player slowly over time;
-
-            stage = 1;
-
-            ConstantPlayerDamage(1.0f);
-
-        } else if (hpPercantage > 0.0f) {
+        else if (hpPercantage > 0.0f) {
 
             // Introduces rifts. Rifts will spawn over the wall randomly and damage nearby 
             // units. They will slowly disappear when stared at, but will disappear faster when
             // stared directly at them.
 
-            stage = 2; // Damage + Rifts
+            stage = 1; // Rifts
 
-            ConstantPlayerDamage(1.2f);
             HandleRifts();
 
         } else {
 
-            stage = 3; // Game over
+            stage = 2; // Game over
 
             if (Game.inMainMenu || !Player.instance.alive) return;
 
@@ -122,18 +110,7 @@ public class Wall : Stareable {
 
     }
 
-    // Stage 1: Constant player damage
-    //          The player will be damaged by a certain damage rate, scaled by scale, constantly.
-    private void ConstantPlayerDamage(float scale) {
-
-        if (isStaredAt) return;
-        if (!Player.instance.alive) return;
-        
-        playerHealth.Damage(baseDamage * scale * Time.deltaTime);
-
-    }
-
-    // Stage 2: Rifts
+    // Stage 1: Rifts
     //          Rifts will spawn on the wall randomly every few seconds, once spawned, they will
     //          slowly damage units in range (unitsInRange list), and also grow in size. Staring
     //          at them will decrease their size, or a rifter unit can be spawned to do that 
