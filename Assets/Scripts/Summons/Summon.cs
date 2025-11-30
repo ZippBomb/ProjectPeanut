@@ -1,8 +1,9 @@
-using UnityEditor;
 using UnityEngine;
 using UnityEngine.UI;
 
 public abstract class Summon : Stareable {
+
+    [SerializeField] private int id = -1;
 
     [Header("Health")]
     [SerializeField] private float health = 100.0f;
@@ -42,6 +43,8 @@ public abstract class Summon : Stareable {
 
         Destroy(hpIndicator);
 
+        SummonManager.instance.DecrementUnitCount(id);
+
     }
 
     public virtual void UpdateSummon() {
@@ -77,6 +80,8 @@ public abstract class Summon : Stareable {
     }
 
     public virtual bool OnUpdatePreview(GameObject preview, RaycastHit hit) { return true; }
+
+    public int GetID() { return id; }
 
     public Mesh GetPreviewMesh() { return previewMesh; }
 

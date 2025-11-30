@@ -389,6 +389,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isStaredAt: 0
+  id: 1
   health: 100
   maxHealth: 100
   damageRate: 1

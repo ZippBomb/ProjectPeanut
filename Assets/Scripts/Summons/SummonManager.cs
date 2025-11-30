@@ -1,3 +1,5 @@
+using System.Collections.Generic;
+
 using Unity.Collections;
 using UnityEngine;
 using UnityEngine.UI;
@@ -30,6 +32,8 @@ public class SummonManager : MonoBehaviour {
 
     private GameObject preview;
     private Transform previewMesh;
+
+    private Dictionary<int, int> unitCount = new Dictionary<int, int>();
 
     private void Start() {
         
@@ -112,6 +116,12 @@ public class SummonManager : MonoBehaviour {
         summonGO.GetComponent<Summon>().OnSummoned(hpIndicator);
         Wall.instance.UpdateUnitsInRange();
 
+        int summonID = summon.GetComponent<Summon>().GetID();
+        if (unitCount.ContainsKey(summonID))
+            unitCount[summonID]++;
+        else
+            unitCount.Add(summonID, 1);
+
         summon = null;
 
         Game.input.Casting.Disable();
@@ -130,6 +140,19 @@ public class SummonManager : MonoBehaviour {
 
         Game.EnableInventoryInput();
         Game.EnableInteractionInput();
+
+    }
+
+    public int GetUnitCount(int summonID) {
+        
+        if (!unitCount.ContainsKey(summonID)) return -1;
+        return unitCount[summonID];
+
+    }
+    public void DecrementUnitCount(int summonID) {
+        
+        Game.Assert(unitCount.ContainsKey(summonID), "Tried decrementing a summon ID that is not present in unitCount.");
+        unitCount[summonID]--;
 
     }
 

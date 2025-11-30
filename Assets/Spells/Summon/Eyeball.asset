@@ -16,6 +16,7 @@ MonoBehaviour:
     rid: 7911273334612164685
   castLogicType: 1
   summon: {fileID: 6454006969326718071, guid: ae45413d9438bf84dadcf551ae90578f, type: 3}
+  cap: 2
   references:
     version: 2
     RefIds:
